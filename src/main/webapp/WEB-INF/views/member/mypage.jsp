@@ -77,7 +77,7 @@
               </tr>
               <tr style="height: 76px;">
                 <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-first-column u-palette-1-light-1 u-table-cell u-table-cell-7">주소</td>
-                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell"></td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">${dto.phone}</td>
               </tr>
               <tr style="height: 76px;">
                 <td class="u-border-2 u-border-grey-60 u-border-no-left u-border-no-right u-first-column u-palette-1-light-1 u-table-cell u-table-cell-9"> 라이센스</td>
