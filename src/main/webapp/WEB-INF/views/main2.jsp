@@ -7,7 +7,7 @@
 
       <title>ISOSIM Rent-Car</title>
     <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
- <!--   <script src="js/main.js"></script> -->
+   <script src="/js/main/main.js"></script>
     <link rel="stylesheet" href="/css/main/main.css">
 
         <meta charset="UTF-8">
@@ -139,21 +139,28 @@ function read(noticeno){
                 <br><br><br>
 
 <!-- 이미지 슬라이드 -->
-<!--
-<div id="slide_warp">
-    <div id="slide_group_view">
-        <div id="slide_group">
-            <img src="./images/carImg/modelYc.jpg" class="slide_img">
-            <img src="./images/carImg/modelXc.jpg" class="slide_img">
-            <img src="./images/carImg/taycanc.jpg" class="slide_img">
-            <img src="./images/carImg/ioniq6c.png" class="slide_img">
-        </div>
-    </div>
-    <div id="nav">
-        <a href="#" class="prev"></a>
-        <a href="#" class="next"></a>
-    </div>
-</div>
+
+<div id="slideShow">
+    <ul class="slides">
+      <li>
+        <img src="images/carImg/ioniq6c.png" alt="">
+    </li>
+      <li>
+        <img src="images/carImg/modelXc.jpg" alt="">
+      </li>
+      <li>
+        <img src="images/carImg/modelYc.jpg" alt="">
+    </li>
+    <li>
+        <img src="images/carImg/taycanc.jpg" alt="">
+    </li>
+    </ul>
+    <p class="controller">
+      <!-- &lang: 왼쪽 방향 화살표 &rang: 오른쪽 방향 화살표 --> 
+      <span class="prev">&lang;</span> 
+      <span class="next">&rang;</span>
+    </p>
+  </div>
 
 <!-- 이미지 슬라이드 end-->
 
