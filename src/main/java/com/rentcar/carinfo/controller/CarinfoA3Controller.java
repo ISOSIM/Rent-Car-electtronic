@@ -17,7 +17,6 @@ import java.util.Map;
 
 
 @RestController
-    @RequestMapping("/carinfo")
     @RequiredArgsConstructor
     public class CarinfoA3Controller {
 
@@ -39,7 +38,7 @@ import java.util.Map;
 //    }
 
 
-        @PostMapping("/resource")
+        @PostMapping("/user/carinfo/resource")
         public AwsS3 upload(@RequestPart("filenameMF")
                             MultipartFile multipartFile) throws IOException {
 //            AwsS3 a3 = awsS3Service.upload(multipartFile,"carinfo");

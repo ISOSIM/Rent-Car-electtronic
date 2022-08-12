@@ -10,8 +10,13 @@
 /src/main/resources/application.properties
 /src/main/resources/kakao.properties
 
+<<<<<<< HEAD
+/build
 
+=======
 
+./build
+>>>>>>> 01a5230192f88db12414915f9532a665c851785a
 ./proxy
 ./init-letsencrypt.sh
 ### IntelliJ IDEA ###

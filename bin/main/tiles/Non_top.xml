@@ -6,7 +6,8 @@
 <tiles-definitions>
 
     <definition name="baseEmpty"
-                template="/WEB-INF/views/support/supporter/poptemplate.jsp">
+                template="/WEB-INF/views/template/template.jsp">
+
         <put-attribute name="header"
                        value="/WEB-INF/views/support/supporter/top.jsp" />
     </definition>
@@ -26,6 +27,11 @@
     <definition name="/facilities" extends="main">
         <put-attribute name="title" value="가맹정 등록"></put-attribute>
         <put-attribute name="body" value="/WEB-INF/views/map/facilities.jsp" />
+    </definition>
+
+    <definition name="/error404" extends="baseEmpty">
+        <put-attribute name="title" value="404error"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/views/error/403.jsp" />
     </definition>
 
 </tiles-definitions>

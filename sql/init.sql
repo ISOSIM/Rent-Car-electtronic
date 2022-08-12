@@ -57,6 +57,18 @@ DROP TABLE IF EXISTS `carinfo`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `carinfo` (
   `carnumber` varchar(8) NOT NULL,
+<<<<<<< HEAD
+  `carname` varchar(100) NOT NULL,
+  `carimage` varchar(100) DEFAULT NULL,
+  `rentcost` varchar(4) NOT NULL,
+  `carpoint` varchar(8) NOT NULL,
+  `carseate` varchar(4) not null,
+  `category` varchar(40) NOT NULL,
+  `caryearmodel` varchar(5) NOT NULL,
+  `rentstatus` int NULL,
+  `x` varchar(50) NULL,
+  `y` varchar(50) NULL,
+=======
   `carname` VARCHAR(100) NOT NULL,
   `carimage` VARCHAR(500) NULL,         -- varchar 크기 수정
   `rentcost` int not null,               -- rentcost 비용 컬럼 수정
@@ -67,6 +79,7 @@ CREATE TABLE `carinfo` (
   `rentstatus` int not null,                   -- 0이면 대여 가능, 1이면 불가능 추가
   `x` varchar(50),   -- 지도 맵 추가
   `y` varchar(50),   -- 지도 맵 추가
+>>>>>>> 6a34f9b4afab89cc31c37bf2d6b014dbe52e5e48
   PRIMARY KEY (`carnumber`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;

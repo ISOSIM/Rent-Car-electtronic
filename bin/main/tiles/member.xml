@@ -7,8 +7,12 @@
 
     <definition name="main"
                 template="/WEB-INF/views/template/template.jsp">
+
         <put-attribute name="header"
                        value="/WEB-INF/views/template/top.jsp" />
+
+        <put-attribute name="footer"
+                       value="/WEB-INF/views/template/footer.jsp" />
     </definition>
 
     <definition name="/reservation" extends="main">
@@ -20,11 +24,7 @@
     <definition name="/mypage" extends="main">
         <put-attribute name="title" value="마이페이지"></put-attribute>
         <put-attribute name="body"
-<<<<<<< HEAD
-                       value="/WEB-INF/views/member/mypagee.jsp" />
-=======
                        value="/WEB-INF/views/member/mypage.jsp" />
->>>>>>> 6a34f9b4afab89cc31c37bf2d6b014dbe52e5e48
     </definition>
 
     <definition name="/list" extends="main">
