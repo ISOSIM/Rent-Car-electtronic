@@ -36,7 +36,6 @@ public class CarinfoCarcontroller {
     private final AwsS3Service awsS3Service;
 
 
-
     @GetMapping("/admin/carinfo/mapupdate/{carnumber}")
     public String mapupdate(@PathVariable ("carnumber") String carnumber) {
         return "/carinfo/mapupdate";
@@ -73,7 +72,7 @@ public class CarinfoCarcontroller {
     }
 
 
-    @GetMapping("/user/carinfo/delete/{carnumber}")
+    @GetMapping("/carinfo/delete/{carnumber}")
     public String delete(@PathVariable String carnumber) {
         int flag = service.delete(carnumber);
         if (flag != 1) return "error";
@@ -100,7 +99,6 @@ public class CarinfoCarcontroller {
     @GetMapping("/user/carinfo/read/{carnumber}")
     public String read(@PathVariable("carnumber") String carnumber, Model model) {
         CarinfoDTO dto = service.read(carnumber);
-
         log.info("read dto: " + dto);
         model.addAttribute("dto", dto);
         return "/carinfo/read";
@@ -125,7 +123,7 @@ public class CarinfoCarcontroller {
     }
 
 
-    @RequestMapping("/user/carinfo/list")
+    @RequestMapping("/carinfo/list")
     public String list(HttpServletRequest request) {
         // 검색관련------------------------
         String col = Utility.checkNull(request.getParameter("col"));

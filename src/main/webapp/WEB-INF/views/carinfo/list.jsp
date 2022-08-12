@@ -97,7 +97,7 @@
                 <div class="col-sm-3">
                   <h1> ${dto.carname }</h1>
 
-                  <a href="/carinfo/read/${dto.carnumber}">
+                  <a href="/user/carinfo/read/${dto.carnumber}">
                     <img src="${dto.carimage}" class="img-thumbnail" width="350" height="300"></a>
                   <p><b>차 번호 : ${dto.carnumber}</b><br>
                     <b>${dto.category} | ${dto.carseate }</b> | <b>${dto.caryearmodel}</b><br>

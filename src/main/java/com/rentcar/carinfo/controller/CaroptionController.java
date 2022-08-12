@@ -10,10 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
@@ -39,7 +36,6 @@ public class CaroptionController {
             return "error";
         }
     }
-
     @GetMapping("/admin/carinfo/optupdate/{carnumber}")
     public String update(@PathVariable("carnumber") String carnumber){
         return "/carinfo/optupdate";
@@ -50,7 +46,7 @@ public class CaroptionController {
         int cnt = service.update(dto);
         log.info("cnt: " + cnt);
         if (cnt == 1) {
-            return "null";
+            return "/carinfo/read/{carnumber}";
         } else {
             return "error";
         }
