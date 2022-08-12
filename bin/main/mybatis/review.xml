@@ -34,7 +34,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     <insert id="create" parameterType="com.rentcar.review.model.ReviewDTO">
         insert into review(content, regdate, id, listno)
-        values(#{content}, sysdate(),'sss'  ,#{listno})
+        values(#{content}, sysdate(),#{id}  ,#{listno})
     </insert>
 
     <select id="read" parameterType="int" resultType="com.rentcar.review.model.ReviewDTO">

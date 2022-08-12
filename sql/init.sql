@@ -57,7 +57,7 @@ DROP TABLE IF EXISTS `carinfo`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `carinfo` (
   `carnumber` varchar(8) NOT NULL,
-<<<<<<< HEAD
+
   `carname` varchar(100) NOT NULL,
   `carimage` varchar(100) DEFAULT NULL,
   `rentcost` varchar(4) NOT NULL,
@@ -68,7 +68,7 @@ CREATE TABLE `carinfo` (
   `rentstatus` int NULL,
   `x` varchar(50) NULL,
   `y` varchar(50) NULL,
-=======
+
   `carname` VARCHAR(100) NOT NULL,
   `carimage` VARCHAR(500) NULL,         -- varchar 크기 수정
   `rentcost` int not null,               -- rentcost 비용 컬럼 수정

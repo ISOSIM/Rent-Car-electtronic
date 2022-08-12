@@ -59,7 +59,7 @@
       alert("수정했습니다.");
         window.close();
         window.opener.location.reload();
-      }, 100);
+      }, 10);
     });
   });
 </script>

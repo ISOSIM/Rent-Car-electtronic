@@ -94,6 +94,7 @@
           <div class="buttons">
            <button type="submit" id="closebtn" class="btn">Option 수정</button>
           </div>
+
         </div>
       </div>
     </form>
