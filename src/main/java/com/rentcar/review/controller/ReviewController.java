@@ -63,10 +63,10 @@ public class ReviewController {
     public ResponseEntity<String> create(@RequestBody ReviewDTO vo) {
 
         log.info("ReviewDTO:contents " + vo.getContent());
-//      log.info("ReviewDTO:id " + vo.getId());
+        log.info("ReviewDTO:id " + vo.getId());
         log.info("ReviewDTO:listno " + vo.getListno());
         System.out.println("vo:  " + vo);
-       // vo.setContent(vo.getContent().replaceAll("/n/r", "<br>"));
+        // vo.setContent(vo.getContent().replaceAll("/n/r", "<br>"));
 
         int flag = service.create(vo);
 

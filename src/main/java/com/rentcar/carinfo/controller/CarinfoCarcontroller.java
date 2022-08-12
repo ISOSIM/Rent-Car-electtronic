@@ -1,19 +1,14 @@
 package com.rentcar.carinfo.controller;
 
 
-import com.rentcar.carinfo.service.CaroptionService;
+import com.rentcar.utility.Ncloud.service.AwsS3Service;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-
 import com.rentcar.carinfo.model.CarinfoDTO;
-import com.rentcar.carinfo.model.CaroptionDTO;
 import com.rentcar.carinfo.service.CarinfoService;
-import com.rentcar.carinfo.service.CaroptionService;
-import com.rentcar.utility.UploadCon;
 import com.rentcar.utility.Utility;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -29,111 +24,115 @@ import java.util.Map;
 
 
 @Controller
-@RequestMapping("/carinfo")
+//@RequestMapping("/carinfo")
+@RequiredArgsConstructor
 public class CarinfoCarcontroller {
+
+
     private static final Logger log = LoggerFactory.getLogger(CarinfoCarcontroller.class);
     @Autowired
     @Qualifier("com.rentcar.carinfo.service.CarinfoServiceImpl")
     private CarinfoService service;
+    private final AwsS3Service awsS3Service;
 
-    @Autowired
-    @Qualifier("com.rentcar.carinfo.service.CaroptionServiceImpl")
-    private CaroptionService cservice;
 
-    @PostMapping("/updateFile")
-    public String updateFile(MultipartFile filenameMF, String oldfile, String carnumber) throws IOException {
 
-        String basePath = UploadCon.getUploadDir();
-        if (oldfile != null && !oldfile.equals("default.jpg")) {
-            Utility.deleteFile(basePath, oldfile);
+    @GetMapping("/admin/carinfo/mapupdate/{carnumber}")
+    public String mapupdate(@PathVariable ("carnumber") String carnumber) {
+        return "/carinfo/mapupdate";
+    }
+
+    @PostMapping("/carinfo/mapupdate")
+    public String mapupdate(CarinfoDTO dto) {
+        int cnt = service.mapupdate(dto);
+        if(cnt == 1){
+            return "null";
+        }else{
+            return "error";
         }
+    }
 
-        Map map = new HashMap();
-        map.put("carnumber", carnumber);
-        map.put("carimage", Utility.saveFileSpring(filenameMF, basePath));
+    @GetMapping("/admin/carinfo/optupdate/{carnumber}")
+    public String update(@PathVariable("carnumber") String carnumber){
+        return "/carinfo/optupdate";
+    }
 
-        int cnt = service.updateFile(map);
+    @PostMapping("/carinfo/updateFile")
+    public String updateFile(MultipartFile filenameMF, CarinfoDTO dto, HttpServletRequest request
+    ) throws IOException {
+
+        int cnt = service.updateFile(dto);
         if (cnt == 1) {
-            return "redirect:/carinfo/list";
+            return "/user/carinfo/list";
         } else {
             return "error";
         }
     }
 
-    @GetMapping("/updateFile/{carnumber}/{oldfile}")
-    public String updateFileForm(@PathVariable("carnumber") String carnumber,
-                                 @PathVariable("oldfile") String oldfile,
-                                 Model model) {
-        model.addAttribute("carnumber", carnumber);
-        model.addAttribute("oldfile", oldfile);
+    @GetMapping("/admin/carinfo/updateFile/{carnumber}")
+    public String updateFileForm(@PathVariable("carnumber") String carnumber, Model model) {
+        CarinfoDTO dto = service.read(carnumber);
+        model.addAttribute("dto", dto);
         return "/carinfo/updateFile";
     }
 
 
-    @GetMapping("/delete/{carnumber}")
+    @GetMapping("/user/carinfo/delete/{carnumber}")
     public String delete(@PathVariable String carnumber) {
         int flag = service.delete(carnumber);
         if (flag != 1) return "error";
-        else return "redirect:/carinfo/list";
+        else return "/user/carinfo/list";
     }
 
-    @PostMapping("/update")
+    @PostMapping("/carinfo/update")
     public String update(CarinfoDTO dto) {
-        //log.info("dto:"+dto);
         int cnt = service.update(dto);
-        log.info("cnt:" + cnt);
         if (cnt == 1) {
-            return "redirect:/carinfo/list";
+            return "/user/carinfo/list";
         } else {
             return "error";
         }
     }
 
-    @GetMapping("/update/{carnumber}")
+    @GetMapping("/admin/carinfo/update/{carnumber}")
     public String update(@PathVariable("carnumber") String carnumber, Model model) {
+
         CarinfoDTO dto = service.read(carnumber);
         model.addAttribute("dto", dto);
         return "/carinfo/update";
     }
 
-    @GetMapping("/read/{carnumber}")
+    @GetMapping("/user/carinfo/read/{carnumber}")
     public String read(@PathVariable("carnumber") String carnumber, Model model) {
         CarinfoDTO dto = service.read(carnumber);
+        System.out.println("!!!!!!!!!!!!!!!!!!!!!!");
+        log.info("read dto: " + dto);
+        System.out.println(dto);
         model.addAttribute("dto", dto);
         return "/carinfo/read";
     }
 
-    @PostMapping("/create")
-    public String crate(CarinfoDTO dto,
-                        CaroptionDTO cdto,
-                        HttpServletRequest request) throws IOException {
-        System.out.println(dto);
-        String upDir = UploadCon.getUploadDir();
-        String fname = Utility.saveFileSpring(dto.getFilenameMF(), upDir);
-        int size = (int) dto.getFilenameMF().getSize();
 
-        if (size > 0) {
-            dto.setCarimage(fname);
-        } else {
-            dto.setCarimage("default.jpg");
-        }
-        log.info("dto:" + dto);
-        log.info("cdto" + cdto);
-        if (service.create(dto) > 0 && cservice.create(cdto) > 0) {
-            return "redirect:./list";
+    @PostMapping("/carinfo/create")
+    public String create(CarinfoDTO dto, HttpServletRequest request
+    ) throws IOException {
+
+        if (service.create(dto) > 0) {
+            return "/carinfo/optcreate";
         } else {
             return "error";
         }
 
     }
 
-    @GetMapping("/create")
-    public String create() {
-        return
+    @GetMapping("/admin/carinfo/create")
+    public String create() {return
                 "/carinfo/create";
     }
 
-    @RequestMapping("/list")
+
+    // /user/carinfo/list  --> /carinfo/list
+    @RequestMapping("/carinfo/list")
     public String list(HttpServletRequest request) {
         // 검색관련------------------------
         String col = Utility.checkNull(request.getParameter("col"));

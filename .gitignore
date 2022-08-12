@@ -1,33 +1,22 @@
+<<<<<<< HEAD
+=======
 
+>>>>>>> 6a34f9b4afab89cc31c37bf2d6b014dbe52e5e48
 !gradle/wrapper/gradle-wrapper.jar
 !src/main/main/**/build/
 !**/src/test/**/build/
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-
 /src/main/resources/*.properties
-
-=======
-/src/main/resources/*.properties
-=======
-/src/main/resources/*.properties
-
 /src/main/resources/application.properties
 /src/main/resources/kakao.properties
+
+<<<<<<< HEAD
+/build
+
 =======
 
-/src/main/resources/*.properties
-
->>>>>>> 8c43d8b28950a705ad11559217a2fecc452b2bd8
->>>>>>> 666b389bc25af48f47d2c39f0b97088ef92678fb
-
-
-/src/main/resources/application.properties
-/src/main/resources/kakao.properties
->>>>>>> fc95c094497bcbc5c9f5a0751a4ca19c7f046195
-
-
+./build
+>>>>>>> 01a5230192f88db12414915f9532a665c851785a
 ./proxy
 ./init-letsencrypt.sh
 ### IntelliJ IDEA ###
@@ -38,12 +27,3 @@
 out/
 !src/main/main/**/out/
 !**/src/test/**/out/
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-### VS Code ###
-.vscode/
-

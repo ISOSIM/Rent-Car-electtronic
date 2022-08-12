@@ -7,7 +7,8 @@
 
 	<select id="mainNoticeList" resultType="com.rentcar.notice.model.NoticeDTO">
 
-		select noticeno,title, wdate from notice
+		select noticeno, title, wdate
+		from notice
 		order by noticeno desc limit 4
 
 	</select>

@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/contents")
+@RequestMapping("/user/contents")
 public class ListController {
 
     @Autowired
@@ -35,7 +35,7 @@ public class ListController {
 
         service.delete(listno);
 
-        return "redirect:/contents/list";
+        return "redirect:/user/contents/list";
 
     }
 
@@ -126,7 +126,7 @@ public class ListController {
 
         System.out.println("dto=" + dto);
         if (service.create(dto) == 1) {
-            return "redirect:/contents/list";
+            return "redirect:/user/contents/list";
         } else {
             return "error";
         }

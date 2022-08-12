@@ -34,18 +34,16 @@ public class AwsS3Service {
     }
 
     private AwsS3 upload(File file, String dirName) {
-        String key = randomFileName(file, dirName);
+        String key = randomFileName(file, dirName); //UUID
         String path = putS3(file, key);
         System.out.println(key);
         removeFile(file);
 
-        AwsS3 s3 = AwsS3
+        return AwsS3
                 .builder()
                 .key(key)
                 .path(path)
                 .build();
-
-        return s3;
     }
 
     private String randomFileName(File file, String dirName) {
@@ -55,8 +53,6 @@ public class AwsS3Service {
     private String putS3(File uploadFile, String fileName) {
         amazonS3.putObject(new PutObjectRequest(bucket, fileName, uploadFile)
                 .withCannedAcl(CannedAccessControlList.PublicRead));
-
-
         return getS3(bucket, fileName);
     }
 
@@ -75,6 +71,7 @@ public class AwsS3Service {
 
 
     public void remove(AwsS3 awsS3) {
+        System.out.println("111"+awsS3);
         if (!amazonS3.doesObjectExist(bucket, awsS3.getKey())) {
             throw new AmazonS3Exception("Object " + awsS3.getKey() + " does not exist!");
         }

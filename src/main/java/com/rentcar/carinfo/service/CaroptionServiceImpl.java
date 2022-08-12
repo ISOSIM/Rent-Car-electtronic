@@ -11,8 +11,17 @@ public class CaroptionServiceImpl implements CaroptionService {
     @Autowired
     private CaroptionMapper mapper;
 
+
     @Override
-    public int create(CaroptionDTO cdto) {
-        return mapper.create(cdto);
+    public int create(CaroptionDTO dto) {
+        return mapper.create(dto);
     }
+
+    @Override
+    public int update(CaroptionDTO dto) {
+        return mapper.update(dto);
+    }
+
+
 }
+
