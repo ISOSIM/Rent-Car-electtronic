@@ -13,7 +13,6 @@ public class MemberDTO {
     private String license;
     private String carnumber;
 
-    private CarInfo1DTO carIndto;
-    private CarConditionDTO carCdto;
+
 
 }

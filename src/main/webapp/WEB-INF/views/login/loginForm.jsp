@@ -24,7 +24,7 @@
   <p>로그인 하시면 다양하고 특별한 혜택을 이용할 수 있습니다.</p>
 
          <form class="form-horizontal"
-        action="/user/login"
+        action="/exception/user/login"
         method="post">
 
 	<div class="info">

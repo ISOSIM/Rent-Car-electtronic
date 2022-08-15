@@ -86,7 +86,8 @@ var listno =document.querySelector("#listno").value;
 
 
 $("#delete").click(function(){ // 리뷰 삭제
-
+var list_id =document.querySelector("#list_id").value;
+if(list_id )
 var rnum = document.querySelector("#rnum").value;
 
 
@@ -106,14 +107,14 @@ fetch(`/review/${rnum}`,{method: 'delete'})
 
 	$("#addreviewBtn").click(function(){// review create
 
-var id =document.querySelector("#id").value;
-var listno =document.querySelector("#listno").value;
+
 
 if(id === ""){
 alert("로그인 후 이용해주세요.");
 location.href='/user/login';
 }else{
-
+var id =document.querySelector("#id").value;
+var listno =document.querySelector("#listno").value;
 	 var content = document.querySelector("#review11").value;
            	console.log(content);
            	  	console.log(id);

@@ -35,8 +35,6 @@ public class CarinfoCarcontroller {
     private CarinfoService service;
     private final AwsS3Service awsS3Service;
 
-
-
     @GetMapping("/admin/carinfo/mapupdate/{carnumber}")
     public String mapupdate(@PathVariable ("carnumber") String carnumber) {
         return "/carinfo/mapupdate";

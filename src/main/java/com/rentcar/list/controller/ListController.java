@@ -101,10 +101,10 @@ public class ListController {
         map.put("listno", listno);
 
         model.addAllAttributes(map);
-//        System.out.println("map="+map);
+        System.out.println("map="+map);
         List<ReviewDTO> list = rservice.list(map);
 
-//        System.out.println("list="+list);
+        System.out.println("list="+list);
         model.addAttribute("list", list);
 
 

@@ -1,6 +1,10 @@
 package com.rentcar.member.service;
 
 
+import com.rentcar.booking.BookingDTO;
+import com.rentcar.carinfo.model.CarinfoDTO;
+import com.rentcar.carinfo.model.CaroptionDTO;
+import com.rentcar.login.model.LoginDTO;
 import com.rentcar.member.model.CarConditionDTO;
 import com.rentcar.member.model.CarInfo1DTO;
 import com.rentcar.member.model.MemberDTO;
@@ -16,6 +20,8 @@ import com.rentcar.member.model.MemberDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+
 @Service("com.rentcar.member.service.MemberServiceImpl")
 public class MemberServiceImpl implements MemberService {
 
@@ -24,22 +30,28 @@ public class MemberServiceImpl implements MemberService {
 
 
     @Override
-    public MemberDTO mypage(String id) {
+    public LoginDTO mypage(String id) {
         return mapper.mypage(id);
     }
 
+
     @Override
-    public String reservation(String id) {
-        return mapper.reservation(id);
+    public LoginDTO login(String id) {
+        return mapper.login(id);
     }
 
     @Override
-    public CarInfo1DTO reservation1(String id) {
-        return mapper.reservation1(id);
+    public BookingDTO booking(String user_id) {
+        return mapper.booking(user_id);
     }
 
     @Override
-    public CarConditionDTO reservation2(String id) {
-        return mapper.reservation2(id);
+    public CarinfoDTO carinfo(String carnumber) {
+        return mapper.carinfo(carnumber);
+    }
+
+    @Override
+    public CaroptionDTO caroption(String carnumber) {
+        return mapper.caroption(carnumber);
     }
 }

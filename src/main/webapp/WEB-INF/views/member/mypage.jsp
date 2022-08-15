@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html style="font-size: 16px;" lang="en"><head>
+<html style="font-size: 16px;" lang="ko"><head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="keywords" content="나의 정보">
@@ -41,7 +41,7 @@
     <section class="u-clearfix u-section-1" id="sec-c9d0">
       <div class="u-clearfix u-sheet u-sheet-1">
         <img class="u-image u-image-default u-preserve-proportions u-image-1" src="/images/SJ/mypage/premium-icon-member-card-3945150.png" alt="" data-image-width="512" data-image-height="512">
-        <h3 class="u-text u-text-default u-text-1">김길동 님의</h3>
+        <h3 class="u-text u-text-default u-text-1">${dto.mname} 님의</h3>
         <a href="" class="u-border-none u-btn u-btn-round u-button-style u-radius-30 u-btn-1">&nbsp;정보 수정</a>
         <a href="/user/member/reservation" class="u-border-none u-btn u-btn-round u-button-style u-radius-30 u-text-body-alt-color u-btn-2">예약 정보</a>
         <h3 class="u-text u-text-default u-text-palette-1-base u-text-2">회 원 정 보</h3>
@@ -77,16 +77,29 @@
               </tr>
               <tr style="height: 76px;">
                 <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-first-column u-palette-1-light-1 u-table-cell u-table-cell-7">주소</td>
-                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">${dto.phone}</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">${dto.address1}&nbsp;${dto.address2}&nbsp;${dto.zipcode}</td>
               </tr>
               <tr style="height: 76px;">
                 <td class="u-border-2 u-border-grey-60 u-border-no-left u-border-no-right u-first-column u-palette-1-light-1 u-table-cell u-table-cell-9"> 라이센스</td>
                 <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell u-white u-table-cell-10">${dto.id}</td>
               </tr>
+              <tr style="height: 76px;">
+                <td class="u-border-2 u-border-grey-60 u-border-no-left u-border-no-right u-first-column u-palette-1-light-1 u-table-cell u-table-cell-9"> 라이센스</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell u-white u-table-cell-10">${dto.id}</td>
+              </tr>
+             <tr style="height: 76px;">
+               <td class="u-border-2 u-border-grey-60 u-border-no-left u-border-no-right u-first-column u-palette-1-light-1 u-table-cell u-table-cell-9"> 라이센스</td>
+               <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell u-white u-table-cell-10">${dto.id}</td>
+             </tr>
+             <tr style="height: 76px;">
+              <td class="u-border-2 u-border-grey-60 u-border-no-left u-border-no-right u-first-column u-palette-1-light-1 u-table-cell u-table-cell-9"> 라이센스</td>
+              <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell u-white u-table-cell-10">${dto.id}</td>
+              </tr>
+
             </tbody>
           </table>
         </div>
-        <img class="u-image u-image-round u-radius-50 u-image-2" src="/images/SJ/mypage/skyy.jpg" alt="" data-image-width="367" data-image-height="137">
+        
       </div>
     </section>
 

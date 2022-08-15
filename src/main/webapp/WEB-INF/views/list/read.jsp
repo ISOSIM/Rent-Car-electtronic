@@ -71,7 +71,7 @@
 
 <strong class="title">
 <img src="https://cdn-icons-png.flaticon.com/128/1465/1465265.png" style=" height:30px; width:30px;">
-<span class="nickname" data-is-writer="1" style="padding: 1em;">${dto.wname}</span>
+<span class="nickname" data-is-writer="1" style="padding: 1em;" id="list_id">${list.id}</span>
 <span class="date">(${list.regdate})</span>
 
 

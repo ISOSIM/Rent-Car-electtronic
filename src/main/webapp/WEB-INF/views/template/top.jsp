@@ -86,12 +86,10 @@
                 <li class="navigation__item"><span class="item__icon"><span class="icon__emoji">👨‍💻</span></span><span
                     class="item__text">Admin</span></li>
                 <div class="dropdown-content">
-                  <a href="/admin/carinfo/list">차량리스트</a>
                   <a href="/admin/user/list">회원목록</a>
                   <a href="/booking/list">예약 현황</a>
                   <a href="/map/facilities/create">가게 등록</a>
-                  <a href="/user/logout">Sign Out</a>
-
+                  <a href="/exception/user/logout">Sign Out</a>
                 </div>
               </div>
             </c:when>
@@ -102,9 +100,8 @@
                 <li class="navigation__item"><span class="item__icon"><span class="icon__emoji">🙋‍♂️</span></span><span
                     class="item__text">${str}</span></li>
                 <div class="dropdown-content">
-                  <a href="/member/mypage">My Page</a>
-                  <a href="/carinfo/list">차량리스트</a>
-                  <a href="/user/logout">Logout</a>
+                  <a href="/user/member/mypage">My Page</a>
+                  <a href="/exception/user/logout">Logout</a>
                 </div>
               </div>
             </c:otherwise>
