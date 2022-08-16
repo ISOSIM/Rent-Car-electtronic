@@ -33,7 +33,7 @@
 
   function licOcr(formData){
 
-	  return fetch(`/license`,{
+	  return fetch(`/exception/license`,{
 		    method: 'POST',
 		    body: formData
 		  })

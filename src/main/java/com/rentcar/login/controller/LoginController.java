@@ -199,7 +199,7 @@ public class LoginController {
 
     }
 
-    @GetMapping("/user/createForm")
+    @PostMapping("/user/createForm")
     public String create() {
 
         return "/user/create";
