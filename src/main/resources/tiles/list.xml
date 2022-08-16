@@ -31,7 +31,7 @@
     </definition>
     <definition name="/list/update" extends="main">
         <put-attribute name="title" value="list 수정" ></put-attribute>
-        <put-attribute name="body" value="/WEB-INF/views/list/updateForm.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/list/update.jsp" />
     </definition>
 <!--    <definition name="/list/reply" extends="main">-->
 <!--        <put-attribute name="title" value="list 답변" ></put-attribute>-->

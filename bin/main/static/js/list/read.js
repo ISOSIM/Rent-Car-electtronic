@@ -20,7 +20,7 @@ var listno =document.querySelector("#listno").value;
 
 $("#btn_delete").click(function(){ //글 삭제
 
-
+var listno =document.querySelector("#listno").value;
  var imgs = document.querySelectorAll('img');
         console.log(imgs);
         for(var i=0; i<imgs.length; i++){
@@ -50,7 +50,7 @@ $("#btn_delete").click(function(){ //글 삭제
 } //for
   setTimeout(
 $.ajax({
-        	url : "http://localhost:9090/user/contents/list/delete",
+        	url : "/user/contents/list/delete",
         	type : 'post',
         	data : {
         		listno : listno

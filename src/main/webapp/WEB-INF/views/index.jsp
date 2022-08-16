@@ -20,22 +20,6 @@
                             box-sizing: border-box;
                         }
 
-                        h1,
-                        h2,
-                        h3,
-                        h4,
-                        h5 {
-                            margin: 0;
-                            padding: 0;
-                        }
-
-                        body {
-                            overflow-x: hidden;
-                            overflow-y: hidden;
-                            padding: 0;
-                            margin: 0;
-                        }
-
                         .main {
                             padding: 0;
                             margin: 0;
@@ -48,8 +32,8 @@
                             position: fixed;
                             background-size: cover;
                             background-position: center;
-                            height: 800px;
-                            width: 100%;
+                            height: 750px;
+                            width: 50%;
                             z-index: 0;
                         }
 

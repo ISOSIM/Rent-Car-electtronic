@@ -9,12 +9,21 @@
             <meta charset="utf-8">
             <script src="https://code.jquery.com/jquery-latest.min.js"></script>
             <link rel="stylesheet" type="text/css" href="/css/list/list.css" />
+            <style>
+              .pagination{
+                justify-content: center;
+                display: flex;
+              }
+              .pagination .active{
+                width: 20px;
+              }
+            </style>
           </head>
 
         <body>
           <div class="container">
 
-            <h1 class="col-sm-offset-2 col-sm-10">공자사항</h1>
+            <h1 class="col-sm-offset-2 col-sm-10">공지사항</h1>
             
             <form class="form-inline" action="/user/notice/list">
               <div class="form-group">
@@ -92,9 +101,11 @@
 
               </tbody>
             </table>
+
             <div>
               ${paging}
             </div>
+
           </div>
 
 
