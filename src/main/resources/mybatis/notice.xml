@@ -58,6 +58,13 @@
     FROM notice
     WHERE noticeno=#{noticeno}
   </select>
+
+
+	<select id="readfile" resultType="String" parameterType="map">
+		SELECT `key` FROM rent_car.notice
+		WHERE fname=#{fname};
+	</select>
+
   
   <select id="list" parameterType="Map"
 		resultType="com.rentcar.notice.model.NoticeDTO">

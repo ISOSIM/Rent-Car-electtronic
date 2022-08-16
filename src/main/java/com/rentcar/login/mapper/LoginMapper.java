@@ -25,7 +25,7 @@ public interface LoginMapper {
 
   int update(LoginDTO dto);
 
-  void delete(LoginDTO dto);
+  void delete(String id);
 
   int total(Map map);
 

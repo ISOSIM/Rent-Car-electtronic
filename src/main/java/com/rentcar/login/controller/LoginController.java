@@ -1,12 +1,6 @@
 package com.rentcar.login.controller;
 
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.*;
 
 import javax.servlet.http.Cookie;
@@ -14,16 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.rentcar.member.model.MemberDTO;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -45,8 +33,45 @@ public class LoginController {
     private LoginService service;
 
 
+
+    @GetMapping("/admin/user/delete")
+    public String delete(String id) {
+
+        service.delete(id);
+
+        return "redirect:/exception/admin/user/list";
+
+    }
+
+    @PostMapping("/admin/user/update")
+    public String updateU(LoginDTO dto, Model model) {
+        int cnt = service.update(dto);
+
+        if (cnt == 1) {
+            model.addAttribute("id", dto.getId());
+
+            return "redirect:/exception/admin/user/list";
+        } else {
+            return "error";
+        }
+    }
+
+    @GetMapping("/admin/user/update")
+    public String updateU(String id, Model model) {
+
+        LoginDTO dto = service.read(id);
+
+        //log.info("dto:"+dto);
+
+        model.addAttribute("dto", dto);
+
+        return "/user/update";
+
+    }
+
+
     @PostMapping("/user/delete")
-    public String delete(String id, String passwd, LoginDTO dto, RedirectAttributes ra, HttpSession session) {
+    public String delete(String id, String passwd, RedirectAttributes ra, HttpSession session){
 
         Map map = new HashMap();
         map.put("id", id);
@@ -57,10 +82,10 @@ public class LoginController {
 
         if (pflag == 1) {
 
-            service.delete(dto);
+            service.delete(id);
 
 
-        } else {
+        }else {
             ra.addFlashAttribute("msg", false);
 
             return "redirect:/user/delete";
@@ -71,8 +96,9 @@ public class LoginController {
     }
 
 
+
     @GetMapping("/user/delete")
-    public String delete(String id, HttpSession session, Model model) {
+    public String delete(String id, HttpSession session, Model model){
 
         if (id == null) {
             id = (String) session.getAttribute("id");
@@ -141,14 +167,14 @@ public class LoginController {
 
 
     @PostMapping("/user/update")
-    public String update(LoginDTO dto, Model model, RedirectAttributes ra) {
+    public String update(LoginDTO dto, Model model, RedirectAttributes ra){
         int cnt = service.update(dto);
 
         if (cnt == 1) {
             model.addAttribute("id", dto.getId());
 
             return "redirect:/member/mypage";
-        } else {
+        }else{
             return "error";
         }
     }
@@ -175,6 +201,7 @@ public class LoginController {
     }
 
 
+
     @GetMapping("/user/pwfind")
     public String pwfind() {
 
@@ -188,10 +215,13 @@ public class LoginController {
     }
 
     @PostMapping("/user/create")
-    public String create(LoginDTO dto, HttpServletRequest request) throws IOException {
+    public String create(LoginDTO dto) throws IOException {
 
-        log.info("dto: " + dto);
+
+        //log.info("dto: "+dto);
+
         if (service.create(dto) > 0) {
+
             return "redirect:/";
         } else {
             return "error";
@@ -224,8 +254,6 @@ public class LoginController {
 
         int cnt = service.loginCheck(map);
 
-        System.out.println("배포 후 테스트:" + cnt);
-
         if (cnt > 0) {// 회원일경우
             Map gmap = service.getGrade(map.get("id"));
             session.setAttribute("id", map.get("id"));
@@ -238,14 +266,10 @@ public class LoginController {
             if (c_id != null) {
                 cookie = new Cookie("c_id", c_id); // c_id=> Y
                 cookie.setMaxAge(60 * 60 * 24 * 365);// 1년
-                cookie.setSecure(true);
-                cookie.setPath("/");
                 response.addCookie(cookie);// client 컴퓨터에 쿠키 저장
 
                 cookie = new Cookie("c_id_val", map.get("id"));
                 cookie.setMaxAge(60 * 60 * 24 * 365);
-                cookie.setPath("/");
-                cookie.setSecure(true);
                 response.addCookie(cookie);
             } else {
                 cookie = new Cookie("c_id", ""); // 쿠키 삭제
@@ -259,7 +283,9 @@ public class LoginController {
         }
 
         if (cnt == 0 || cnt < 0) {
+
             model.addAttribute("msg", "아이디 또는 비밀번호가 일치하지 않습니다.");
+
             return "/login/errorMsg";
         }
         return "redirect:/";
@@ -293,9 +319,4 @@ public class LoginController {
         return "/user/login";
     }
 
-//  @GetMapping("/")
-//  public String home() {
-//
-//    return "/home";
-//  }
 }

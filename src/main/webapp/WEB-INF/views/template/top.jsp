@@ -107,7 +107,7 @@
                 <li class="navigation__item"><span class="item__icon"><span class="icon__emoji">🙋‍♂️</span></span><span
                     class="item__text">${str}</span></li>
                 <div class="dropdown-content">
-                  <a href="/exception/user/member/mypage">My Page</a>
+                  <a href="/user/member/mypage">My Page</a>
                   <a href="/exception/user/logout">Logout</a>
                 </div>
               </div>

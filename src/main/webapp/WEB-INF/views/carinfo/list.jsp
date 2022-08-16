@@ -15,7 +15,7 @@
 
         function del(carnumber) {
           if (confirm("정말삭제하시겠습니까?")) {
-            let url = "delete/" + carnumber;
+            let url = "/admin/carinfo/delete/" + carnumber;
             location.href = url;
           }
         }

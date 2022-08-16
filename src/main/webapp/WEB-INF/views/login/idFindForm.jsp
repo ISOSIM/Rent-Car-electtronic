@@ -48,7 +48,7 @@
     <div class="form-block">
 
     <fieldset>
-  <h1><strong>아이디 찾기</strong></h1>
+  <h1><strong>아이디 찾기</strong></h1><br>
   <p> 가입된 정보를 입력하세요.</p><br><br>
 
    <div class="info">

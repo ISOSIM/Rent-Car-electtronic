@@ -12,6 +12,7 @@ public class MVCConfiguration implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
 
+
         registry.addInterceptor(new UserInterceptor())
                 .addPathPatterns("/user/**")
                 .excludePathPatterns("/exception/**");
@@ -30,4 +31,5 @@ public class MVCConfiguration implements WebMvcConfigurer {
                 .exposedHeaders("Set-Cookie")
                 .allowCredentials(true);
     }
+
 }
