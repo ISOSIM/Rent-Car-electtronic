@@ -98,7 +98,7 @@
 		  alert("아이디를 입력하세요");
 		  document.frm.id.focus();
 	  }else{
-		  var url = "idcheck";
+		  var url = "/exception/user/idcheck";
 		  var param = "id="+id;
 
 		  $.get(url, param, function(data, textStatus) {

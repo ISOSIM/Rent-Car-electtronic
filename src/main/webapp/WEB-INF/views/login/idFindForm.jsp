@@ -67,7 +67,7 @@
 
 		<div class ="find" align="center">
 		<p>
-			<br><br><a href="/user/pwfind">비밀번호 찾기</a><br><br>
+			<br><br><a href="/exception/user/pwfind">비밀번호 찾기</a><br><br>
 		</p>
 		<p>
 			<a href="/user/agree" style="color:#489CFF;">회원가입</a>

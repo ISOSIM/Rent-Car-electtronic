@@ -26,8 +26,9 @@
      <script>
      	function del(id) {
      		if(confirm("정말 삭제하시겠습니까?")){
-     		let url = "delete/" + id;
+     		let url = "/user/delete/" + id;
      		location.href = url;
+     		}
      		}
      </script>
 
@@ -76,7 +77,7 @@
  </table>
  <div style="text-align: center">
  <br> <br> <br> <br>
- <button class="cre_btn" onclick="location.href='/user/update'">정보 수정</button>&nbsp;&nbsp;&nbsp;&nbsp;
+ <button class="cre_btn" onclick="location.href='/exception/user/update'">정보 수정</button>&nbsp;&nbsp;&nbsp;&nbsp;
  <button class="cre_btn" onclick="">비밀번호 변경</button>&nbsp;&nbsp;&nbsp;&nbsp;
  <button class="cre_btn" onclick="del(document.frm.id.value)">회원 삭제</button>
  <div>

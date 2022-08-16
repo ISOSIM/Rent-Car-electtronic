@@ -55,7 +55,7 @@ public class NoticeController {
     @GetMapping("/")
     public String home(HttpServletRequest request) {
         List<NoticeDTO> mainNoticeList = service.mainNoticeList();
-        System.out.println("!!!!!!!!!!!!!"+mainNoticeList);
+
         request.setAttribute("mainNoticeList", mainNoticeList);
         return "/home";
     }

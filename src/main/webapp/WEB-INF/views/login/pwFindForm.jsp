@@ -34,7 +34,7 @@
 
   	//비동기 통신을 처리하는 함수 선언
    function pwfind(id,mname){
-	  return fetch(`/user/pwfindex?id=\${id}&mname=\${mname}`)
+	  return fetch(`/exception/user/pwfindex?id=\${id}&mname=\${mname}`)
 	  			.then(response => response.text())
 	  			.catch(console.log);
    }

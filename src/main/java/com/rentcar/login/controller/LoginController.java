@@ -224,6 +224,8 @@ public class LoginController {
 
         int cnt = service.loginCheck(map);
 
+        System.out.println("배포 후 테스트:" + cnt);
+
         if (cnt > 0) {// 회원일경우
             Map gmap = service.getGrade(map.get("id"));
             session.setAttribute("id", map.get("id"));
@@ -236,10 +238,14 @@ public class LoginController {
             if (c_id != null) {
                 cookie = new Cookie("c_id", c_id); // c_id=> Y
                 cookie.setMaxAge(60 * 60 * 24 * 365);// 1년
+                cookie.setSecure(true);
+                cookie.setPath("/");
                 response.addCookie(cookie);// client 컴퓨터에 쿠키 저장
 
                 cookie = new Cookie("c_id_val", map.get("id"));
                 cookie.setMaxAge(60 * 60 * 24 * 365);
+                cookie.setPath("/");
+                cookie.setSecure(true);
                 response.addCookie(cookie);
             } else {
                 cookie = new Cookie("c_id", ""); // 쿠키 삭제
@@ -253,9 +259,7 @@ public class LoginController {
         }
 
         if (cnt == 0 || cnt < 0) {
-
             model.addAttribute("msg", "아이디 또는 비밀번호가 일치하지 않습니다.");
-
             return "/login/errorMsg";
         }
         return "redirect:/";

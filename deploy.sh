@@ -24,7 +24,6 @@ docker-compose down
 
 if [ $? -eq 0 ];then
     echo "Docker compose down clear!"
-    docker rmi $(docker images -f "dangling=true" -q)
 else
     echo "docker-compose down Failure!"
     exit 9
@@ -51,5 +50,6 @@ else
     echo "docker-compose up Failure!"
     exit 9
 fi
+
 cat ./src/main/resources/static/Done.txt
 
