@@ -11,6 +11,7 @@
       <meta charset="utf-8">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/css/common.css">
       <script type="text/javascript">
 
         function del(carnumber) {
@@ -50,6 +51,17 @@
           background-color: skyblue;
           color: black;
         }
+        .control{
+        height: auto;
+            border: 1px solid #bfc9d4;
+            color: #3b3f5c;
+            letter-spacing: 1px;
+            padding: 0.35rem 1.25rem;
+            border-radius: 6px;
+            }
+            .create{
+            margin-left: 10px;
+            }
       </style>
     </head>
     <body>
@@ -62,7 +74,7 @@
           <div class="search1">
             <form class="form-inline" action="./list">
               <div class="form-group">
-                <select class="form-control" name="col">
+                <select class="control" name="col">
                 <option value="category" <c:if test="${col=='category'}"> selected </c:if>>차 종</option>
                   <option value="carname" <c:if test="${col=='carname'}"> selected </c:if>>차이름</option>
 
@@ -73,13 +85,13 @@
           </div>
           <!--search1 end div-->
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Enter 검색어" name="word" value="${word}">
+            <input type="text" class="control" placeholder="Enter Category" name="word" value="${word}">
           </div>
-          <button type="submit" class="check">검색</button>
+          <button type="submit" class="btn btn-defaul">검색</button>
           <c:if test="${sessionScope.grade == 'A'}">
-          <button onclick="createwindow()">Car Create</button>
+          <button class="btn btn-defaul" onclick="createwindow()">Car Create</button>
           </c:if>
-          
+
           </form>
 
         </div>
@@ -97,7 +109,7 @@
                 <div class="col-sm-3">
                   <h1> ${dto.carname }</h1>
 
-                  <a href="/user/carinfo/read/${dto.carnumber}">
+                  <a href="/user/carinfo/read/${dto.carnumber}" class="btn btn-defaul">
                     <img src="${dto.carimage}" class="img-thumbnail" width="350" height="300"></a>
                   <p><b>차 번호 : ${dto.carnumber}</b><br>
                     <b>${dto.category} | ${dto.carseate }</b> | <b>${dto.caryearmodel}</b><br>
@@ -106,10 +118,9 @@
                   </p>
                   
                   <c:if test="${sessionScope.grade == 'A'}">
-                  <button>
-                  <a href="javascript:del('${dto.carnumber}')">Car Delete
-                    <span class="glyphicon glyphicon-trash"></span>
-                  </a></button>
+
+                  <a href="javascript:del('${dto.carnumber}')" class="btn btn-defaul">Car Delete
+                  </a>
                 </c:if>
                 </div>
 
@@ -122,6 +133,7 @@
       <div>
         ${paging}
       </div>
+
     </div>
     </body>
 

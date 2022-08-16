@@ -110,7 +110,7 @@ $("#closebtn").click( function() {
      setTimeout(function() {   
          window.close();
          window.opener.location.reload();
-      }, 100);
+      }, 10);
   });
 
 });

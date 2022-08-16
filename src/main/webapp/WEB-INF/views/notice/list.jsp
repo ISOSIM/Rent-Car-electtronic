@@ -34,7 +34,10 @@
                 <input type="text" class="control" placeholder="Enter 검색어" id="word" name="word" value="${word}">
 
                 <button class="btn btn-default">검색</button>
-                <button type="button" class="btn btn-default" id="create_btn">등록</button>
+                <c:if test="${sessionScope.id=='admin'}">
+                 <button type="button" class="btn btn-default" onclick="location.href='/admin/notice/create'">등록
+                </button>
+                </c:if>
               </div>
             </form>
 

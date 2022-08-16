@@ -40,10 +40,7 @@ public class CaroptionController {
             return "error";
         }
     }
-    @GetMapping("/admin/carinfo/optupdate/{carnumber}")
-    public String update(@PathVariable("carnumber") String carnumber){
-        return "/carinfo/optupdate";
-    }
+
 
 
     @PostMapping("/carinfo/optupdate")

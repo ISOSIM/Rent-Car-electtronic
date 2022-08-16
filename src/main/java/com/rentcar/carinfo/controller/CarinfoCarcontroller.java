@@ -35,7 +35,10 @@ public class CarinfoCarcontroller {
     private CarinfoService service;
     private final AwsS3Service awsS3Service;
 
-
+    @GetMapping("/admin/carinfo/optupdate/{carnumber}")
+    public String update(@PathVariable("carnumber") String carnumber){
+        return "/carinfo/optupdate";
+    }
     @GetMapping("/admin/carinfo/mapupdate/{carnumber}")
     public String mapupdate(@PathVariable ("carnumber") String carnumber) {
         return "/carinfo/mapupdate";
@@ -58,7 +61,7 @@ public class CarinfoCarcontroller {
 
         int cnt = service.updateFile(dto);
         if (cnt == 1) {
-            return "/user/carinfo/list";
+            return "redirect:/carinfo/list";
         } else {
             return "error";
         }
@@ -76,14 +79,14 @@ public class CarinfoCarcontroller {
     public String delete(@PathVariable String carnumber) {
         int flag = service.delete(carnumber);
         if (flag != 1) return "error";
-        else return "/user/carinfo/list";
+        else return "redirect:/carinfo/list";
     }
 
     @PostMapping("/carinfo/update")
     public String update(CarinfoDTO dto) {
         int cnt = service.update(dto);
         if (cnt == 1) {
-            return "/user/carinfo/list";
+            return "redirect:/carinfo/list";
         } else {
             return "error";
         }
