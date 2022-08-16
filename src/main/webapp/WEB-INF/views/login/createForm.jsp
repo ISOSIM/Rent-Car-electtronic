@@ -5,8 +5,8 @@
   <title>회원가입</title>
   <meta charset="utf-8">  
   
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="/css/login.css">
   
   <style type="text/css">
@@ -53,6 +53,7 @@
 		  document.querySelector('#license1').value = result.license.trim();
 		  document.querySelector('#license2').value = result.license.trim();
 		  document.querySelector('#jumin').value = result.jumin.replace("-","").trim();
+		  $('#licInfo_btn').attr('disabled', 'disabled');
 
 	  });
   }
@@ -124,16 +125,39 @@
 	  }
   }
 
-        $(document).ready(function(){
-            var idcheck_clicked = 0;
-        $("#idcheck_btn").click(function(){ idcheck_clicked++ });
-        $("#submit").click(function(){
-            if (idcheck_clicked <= 0){
-                alert('아이디 중복 확인 버튼을 클릭해 주세요');
-                return false;
-            }
-        });
-    });
+  $(document).ready(function(){
+      var jumin_btn_clicked = 0;
+  $("#jumin_btn").click(function(){ jumin_btn_clicked++ });
+  $("#submit").click(function(){
+      if (jumin_btn_clicked <= 0){
+          alert('면허번호 확인 버튼을 클릭해 주세요');
+          return false;
+      }
+  });
+});
+
+  $(document).ready(function(){
+      var idcheck_clicked = 0;
+  $("#idcheck_btn").click(function(){ idcheck_clicked++ });
+  $("#submit").click(function(){
+      if (idcheck_clicked <= 0){
+          alert('아이디 중복 확인 버튼을 클릭해 주세요');
+          return false;
+      }
+  });
+});
+
+  $(document).ready(function(){
+      var email_check_clicked = 0;
+  $("#email_check").click(function(){ email_check_clicked++ });
+  $("#submit").click(function(){
+      if (email_check_clicked <= 0){
+          alert('이메일 중복 확인 버튼을 클릭해 주세요');
+          return false;
+      }
+  });
+});
+
 
 
     function inCheck(f){
@@ -344,7 +368,7 @@
       <div class="col-sm-3">
         <input type="email" class="form-control" id="email"
         placeholder="Enter email"  name="email">
-        <button type="button" class="cre_btn"
+        <button type="button" class="cre_btn" id="email_check"
       onclick="emailCheck(document.frm.email.value)">이메일 중복 확인</button>
       <div id="emailcheck"></div><br>
       </div>
@@ -374,7 +398,7 @@
     <div>
       <div align="center">
       <br><br><br>
-        <button type="submit" class="agreebtn">등록</button><br>
+        <button type="submit" class="agreebtn" id="submit">등록</button><br>
         <button class="btn_2" onclick="history.back()">취소</button>
       </div>
     </div>
