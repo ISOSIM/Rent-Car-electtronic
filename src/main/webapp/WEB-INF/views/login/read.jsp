@@ -23,12 +23,20 @@
             background-color: #e3f2fd;
           }
      </style>
-     <script>
-     	function del(id) {
-     		if(confirm("정말 삭제하시겠습니까?")){
-     		let url = "delete/" + id;
-     		location.href = url;
-     		}
+  <script type="text/javascript">
+     	 function updateU(){
+	         var url = "${root}/admin/user/update";
+             	 url += "?id=${dto.id}";
+
+            	  location.href = url;
+              }
+	function del() {
+		if(confirm("정말 회원을 삭제하시겠습니까?")){
+			  var url = "${root}/admin/user/delete";
+                  url += "?id=${dto.id}";
+		location.href = url;
+		}
+	}
      </script>
 
 </head>
@@ -76,17 +84,13 @@
  </table>
  <div style="text-align: center">
  <br> <br> <br> <br>
- <button class="cre_btn" onclick="location.href='/user/update'">정보 수정</button>&nbsp;&nbsp;&nbsp;&nbsp;
- <button class="cre_btn" onclick="">비밀번호 변경</button>&nbsp;&nbsp;&nbsp;&nbsp;
- <button class="cre_btn" onclick="del(document.frm.id.value)">회원 삭제</button>
+ <button class="cre_btn" onclick="updateU()">정보 수정</button>&nbsp;&nbsp;&nbsp;&nbsp;
+ <button class="cre_btn" onclick="del()">회원 삭제</button>
  <div>
   <br> <br>
  <button class="cre_btn2" onclick="location.href='list'">회원 목록</button>
-<div>
  </div>
- 
- <br>
- 
 </div>
+<br>
 </body>
 </html>

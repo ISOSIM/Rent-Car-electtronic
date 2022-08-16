@@ -20,7 +20,7 @@
             width: 410px;
             margin: 20px 0px;
             color:#003399;
-            text-decoration: #3DB7CC wavy underline;
+            text-decoration: #3DB7CC underline;
   	}
 
 	#idcheck,#emailcheck{
@@ -135,7 +135,20 @@
         });
     });
 
+
     function inCheck(f){
+        	if(f.fnameMF.value.length==0){
+        		alert("운전면허증 사진을 업로드 해주세요.");
+        		f.fnameMF.focus();
+        		return false;
+        	}
+
+        	if(f.license.value.length==0){
+        		alert("확인버튼을 눌러주세요");
+        		f.license.focus();
+        		return false;
+        	}
+
     	if(f.id.value.length==0){
     		alert("아이디를 입력하세요");
     		f.id.focus();
@@ -165,19 +178,8 @@
     		return false;
     	}
 
-    	if(f.fnameMF.value.length==0){
-    		alert("운전면허증 사진을 업로드 해주세요.");
-    		f.fnameMF.focus();
-    		return false;
-    	}
-
-    	if(f.license.value.length==0){
-    		alert("확인버튼을 눌러주세요");
-    		f.license.focus();
-    		return false;
-    	}
     	if(f.phone.value.length==0){
-    		alert("전화번호를 입력하세요");
+    		alert("핸드폰번호를 입력하세요");
     		f.phone.focus();
     		return false;
     	}
@@ -248,7 +250,7 @@
     <div class="createbox">
     <div class="form-block">
 	<div class="mb-4">
-       <h1><strong>회원가입</strong></h1>
+       <h1><strong>회원가입</strong></h1><br>
        <p style="font-size:20px;">( <span id="need">*</span> 필수입력사항)</p><br><br>
      </div>
 
@@ -263,18 +265,50 @@
     <input type="hidden" name="jumin" id="jumin"  value="">
     <input type="hidden" name="license" id="license1"  value="">
 
+    <div class="form-block_2">
+	<div>
+      <br><label class="control-label col-sm-2" for="fnameMF"><h2><span id="need">*</span>  운전면허증 사진</h2> <label id="need">* 1MB이하의 파일만 업로드 해주세요. </label></label>
+      <br>
+      <label id="need2">* 파일을 선택하신 후 확인 버튼을 눌러주세요. * </label>
+      <div class="col-sm-4">
+        <input type="file" class="form-control" id="fnameMF"
+         accept=".jpg,.gif,.png">
+         <br><br>
+     <button type="button" class="cre_btn" id="licInfo_btn" onclick="licInfo(document.frm.fnameMF.value)">확인</button>
+        <br><br>
+      </div>
+    </div>
+
+	<div class="info_2">
+	<br><br><br><br>
+      <label class="control-label col-sm-2" for="license"><h2><span id="need">*</span>  운전면허번호</h2></label>
+            <label id="need2">* 입력된 면허번호가 일치하면 면허번호 확인 버튼을 눌러주세요 * </label><br>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" id="license2" >
+         <button type="button" class="cre_btn" id="jumin_btn" onclick="juminCheck(document.frm.jumin.value)">면허번호 확인</button>
+          <label id="jumincheck"></label>
+      </div>
+    </div>
+</div>
+
+
+
 	<div class="info">
+	<br><br>
       <label class="control-label col-sm-2" for="id"><span id="need">*</span>아이디</label>
       <div>
         <input type="text" class="form-control" id="id" placeholder="아이디를 입력하세요"
         name="id">
+
         <button type="button" class="cre_btn" id="idcheck_btn"
                 onclick="idCheck(document.frm.id.value)">아이디 중복 확인</button>
                  <label id="idcheck"></label><br>
+
       </div>
     </div>
 
 	<div class="info">
+	<br><br>
       <label class="control-label col-sm-2" for="passwd"><span id="need">*</span>비밀번호</label>
       <div class="col-sm-4">
         <input type="password" class="form-control" id="passwd"
@@ -304,26 +338,6 @@
       </div>
     </div>
 
-	<div class="info">
-      <br><label class="control-label col-sm-2" for="fnameMF"><span id="need">*</span>운전면허증 사진</label>
-      <label id="need2">* 파일을 선택하신 후 확인 버튼을 눌러주세요. * </label><br>
-      <div class="col-sm-4">
-        <input type="file" class="form-control" id="fnameMF"
-         accept=".jpg,.gif,.png">
-     <button type="button" class="cre_btn" id="licInfo_btn" onclick="licInfo(document.frm.fnameMF.value)">확인</button>
-        <label id="need">* 1MB이하의 파일만 업로드 해주세요. </label><br><br>
-      </div>
-    </div>
-
-	<div class="info">
-      <label class="control-label col-sm-2" for="license"><span id="need">*</span>운전면허번호</label>
-            <label id="need2">* 입력된 면허번호가 일치하면 면허번호 확인 버튼을 눌러주세요 * </label><br>
-      <div class="col-sm-4">
-        <input type="text" class="form-control" id="license2" >
-         <button type="button" class="cre_btn" id="jumin_btn" onclick="juminCheck(document.frm.jumin.value)">면허번호 확인</button>
-          <label id="jumincheck"></label>
-      </div>
-    </div>
 
 	<div class="info">
       <label class="control-label col-sm-2" for="email"><span id="need">*</span>이메일</label>
@@ -337,6 +351,7 @@
     </div>
 
 	<div class="info">
+	<br><br>
       <label class="control-label col-sm-2" for="sample6_postcode">- 우편번호</label>
 
       <button type="button" class="cre_btn2"

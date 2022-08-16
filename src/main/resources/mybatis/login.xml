@@ -50,12 +50,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				<when test="col=='id'">
 					id like concat('%', #{word} ,'%')
 				</when>
-				<when test="col=='email'">
-					email like concat('%', #{word} ,'%')
-				</when>
 			</choose>
 		</where>
-		ORDER BY mdate DESC
+		ORDER BY mname DESC
 		limit #{sno}, #{eno}
 	</select>
 

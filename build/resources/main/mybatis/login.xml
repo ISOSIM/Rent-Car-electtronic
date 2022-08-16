@@ -55,7 +55,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				</when>
 			</choose>
 		</where>
-		ORDER BY mdate DESC
+		ORDER BY mname DESC
 		limit #{sno}, #{eno}
 	</select>
 

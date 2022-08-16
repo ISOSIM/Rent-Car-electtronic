@@ -11,10 +11,8 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 
-
-
 public class AdminInterceptor extends HandlerInterceptorAdapter {
-    // URL 요청후 컨트롤러 작동전에 실행함.
+    // URL 요청후 콘트롤러 작동전에 실행함.
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         HttpSession session = request.getSession(true);
@@ -47,8 +45,3 @@ public class AdminInterceptor extends HandlerInterceptorAdapter {
         System.out.println("관리자 Interceptor 실행 후 최종 출력됨.");
     }
 }
-
-
-
- 
-

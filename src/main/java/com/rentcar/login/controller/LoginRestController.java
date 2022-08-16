@@ -172,7 +172,6 @@ public class LoginRestController {
     }
 
 
-
     @GetMapping(value = "/user/emailcheck", produces = "application/json;charset=utf-8")
     public Map<String, String> emailcheck(String email){
         int cnt = service.duplicatedEmail(email);

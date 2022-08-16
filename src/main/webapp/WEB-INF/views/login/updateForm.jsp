@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,7 +34,7 @@
 		  alert("이메일을 입력하세요");
 		  document.frm.email.focus();
 	  }else{
-		  var url = "emailcheck";
+		  var url = "/user/emailcheck";
 		  url += "?email="+email;
 
 		  $.get(url, function(data, textStatus) {
@@ -152,19 +153,19 @@ function inCheck(f){
         <label class="control-label col-sm-2" for="email"><span id="need">*</span> 이메일</label>
                 <div id="emailcheck"></div>
         <div>
+         <button type="button" class="cre_btn"
+               onclick="emailCheck(document.frm.email.value)">이메일 변경</button>
           <input type="email" class="form-control" id="email"
           value="${dto.email}" name="email">
-        <button type="button" class="cre_btn"
-        onclick="emailCheck(document.frm.email.value)">이메일 변경</button>
         </div>
       </div>
       <div class="info">
         <label class="control-label col-sm-2" for="sample6_postcode">우편번호</label>
+         <button type="button" class="cre_btn2"
+                  onclick="sample6_execDaumPostcode()">주소검색</button>
         <div class="col-sm-1">
           <input type="text" class="form-control"
            name="zipcode" id="sample6_postcode" value="${dto.zipcode}">
-            <button type="button" class="cre_btn2"
-            onclick="sample6_execDaumPostcode()">주소검색</button>
         </div>
       </div>
       <div class="info">
@@ -185,10 +186,14 @@ function inCheck(f){
           <button type="submit" class="agreebtn">수정</button><br>
           <button class="btn_2" onclick="history.back()">취소</button>
       </div>
+      <c:choose>
+        <c:when test="${not empty sessionScope.id && sessionScope.grade == 'H'}">
       <div>
       <br><br><br>
            <button type="button" class="cre_btn2" onclick="location.href='/user/delete'">회원탈퇴</button>
       </div>
+      </c:when>
+      </c:choose>
     </form>
 
   <br><br>
