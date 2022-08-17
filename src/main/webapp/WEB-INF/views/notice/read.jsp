@@ -17,7 +17,7 @@
                                         location.href = url;
                                 }
                                 function deleteM() {
-                                        var url = "./delete";
+                                        var url = "/admin/notice/delete";
                                         url += "?noticeno=${dto.noticeno}";
 
                                         location.href = url;

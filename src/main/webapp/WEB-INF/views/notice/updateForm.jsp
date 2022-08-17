@@ -66,7 +66,7 @@
    <div class="form-group">
    <div class="col-sm-offset-2 col-sm-5">
     <button class="btn" onClick="update()">수정</button>
-    <button class="btn" onClick="javscript:location.href = '/user/notice/list'">취소</button>
+    <button class="btn" onClick="javscript:location.href = '/notice/list'">취소</button>
    </div>
  </div>
 

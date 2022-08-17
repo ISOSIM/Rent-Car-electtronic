@@ -26,6 +26,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -219,13 +220,15 @@ public class NoticeController {
 
     @GetMapping("/admin/notice/delete")
     public String delete(int noticeno) {
-        return "/notice/delete";
+        return "/admin/notice/delete";
     }
 
     @GetMapping("/admin/notice/create")
     public String create() {
         return "/admin/notice/create";
     }
+
+    //완전 잘되는 코드
 
     @ResponseBody
     @PostMapping("/admin/notice/create")
@@ -241,11 +244,55 @@ public class NoticeController {
         }
 
         if (service.create(dto) > 0) {
-            return "/user/notice/list";
+            return "/notice/list";
         } else {
             return "error";
         }
     }
+
+//   //새로운 시도
+//
+//    @ResponseBody
+//    @PostMapping("/admin/notice/create")
+//    public String create(MultipartHttpServletRequest request) throws IOException {
+//
+//        log.info("@@!!!!!!!!!!!rquest : ", request.getParameter("title"));
+//
+//        NoticeDTO dto = new NoticeDTO();
+//
+//        int noticeno = Integer.parseInt(request.getParameter("noticeno"));
+//        MultipartFile multipartFile = request.getFile("fnameMF");
+//
+//        String title = request.getParameter("title");
+//        String content = request.getParameter("content");
+//        String wname = request.getParameter("wname");
+//        String passwd = request.getParameter("passwd");
+//        String wdate = request.getParameter("wdate");
+//
+//        dto.setTitle(title);
+//        dto.setWname(wname);
+//        dto.setContent(content);
+//        dto.setPasswd(passwd);
+//        dto.setWdate(wdate);
+//
+//        log.info("!!!!!multipartFile : "+multipartFile);
+//
+//        if (dto.getFnameMF() != null && !dto.getFnameMF().equals("")) {
+//            // 파일명으로 저장된다.
+//
+//            dto.setFname(multipartFile.getOriginalFilename());
+//
+//            AwsS3 S3 = awsS3Service.upload(dto.getFnameMF(), "notice");
+//            dto.setKey((String) S3.getKey());
+//
+//        }
+//
+//        if (service.create(dto) > 0) {
+//            return "/notice/list";
+//        } else {
+//            return "error";
+//        }
+//    }
 
     @GetMapping("/notice/read")
     public String read(int noticeno, Model model) {
@@ -293,7 +340,7 @@ public class NoticeController {
         request.setAttribute("word", word);
         request.setAttribute("paging", paging);
 
-        return "/user/notice/list";
+        return "/notice/list";
 
     }
 

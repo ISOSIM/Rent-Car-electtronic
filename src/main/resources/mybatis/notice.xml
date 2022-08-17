@@ -33,7 +33,7 @@
 
 	<update id="deleteFile" parameterType="int">
 		update notice
-		set fname = null
+		set fname = null, `key` = null
 		where noticeno=#{noticeno}
 	</update>
 

@@ -51,7 +51,7 @@
                        value="/WEB-INF/views/notice/read.jsp" />
     </definition>
 
-    <definition name="/user/notice/list" extends="main">
+    <definition name="/notice/list" extends="main">
         <put-attribute name="title" value="기본페이지"></put-attribute>
         <put-attribute name="body"
                        value="/WEB-INF/views/notice/list.jsp" />

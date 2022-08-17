@@ -14,13 +14,13 @@
         <body>
           <div class="container">
 
-            <h1 class="col-sm-offset-2 col-sm-10">공자사항</h1>
+            <h1 class="col-sm-offset-2 col-sm-10">공지사항</h1>
             
             <form class="form-inline" action="/user/notice/list">
               <div class="form-group">
                 <select class="control" name="col">
                   <option value="wname" <c:if test="${col=='wname'}"> selected </c:if>
-                    >성명</option>
+                    >작성자</option>
                   <option value="title" <c:if test="${col=='title'}"> selected </c:if>
                     >제목</option>
                   <option value="content" <c:if test="${col=='content'}"> selected </c:if>
@@ -34,7 +34,10 @@
                 <input type="text" class="control" placeholder="Enter 검색어" id="word" name="word" value="${word}">
 
                 <button class="btn btn-default">검색</button>
-                <button type="button" class="btn btn-default" id="create_btn">등록</button>
+
+                <c:if test="${sessionScope.id=='admin'}">
+                    <button type="button" class="btn btn-default" onclick="location.href='/admin/notice/create'">등록</button>
+                  	</c:if>
               </div>
             </form>
 
