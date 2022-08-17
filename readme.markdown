@@ -8,12 +8,9 @@
 
 ## Electric Vehicle Rent Car Service
 
-<div style="width:200px; height:200px;">
-<img src="https://user-images.githubusercontent.com/65659478/185056695-ff0e0e26-efeb-408d-9f46-be5bce005842.png">
-<br>
-<br>
-<a href="evrent.ml"> 프로젝트 홈페이지</a>
-</div>
+![KakaoTalk_20220817_202019568](https://user-images.githubusercontent.com/65659478/185111861-93f48934-161c-492d-9acc-34acb6a1707f.png)
+
+
 
 
 <br>
@@ -109,8 +106,12 @@
 </table>
 <div>
 
-
-
+<div style="width:200px; height:200px;">
+<img src="https://user-images.githubusercontent.com/65659478/185056695-ff0e0e26-efeb-408d-9f46-be5bce005842.png">
+<a href="evrent.ml"> 프로젝트 홈페이지</a>
+<br>
+<br>
+</div>
 </div>
 
 
