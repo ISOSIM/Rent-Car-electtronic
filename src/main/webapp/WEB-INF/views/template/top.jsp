@@ -91,7 +91,7 @@
                     <div class="dropdown-content">
                       <a href="/admin/carinfo/list">차량리스트</a>
                       <a href="/exception/admin/user/list">회원목록</a>
-                      <a href="/booking/list">예약 현황</a>
+                      <a href="/user/booking/list">예약 현황</a>
                       <a href="/map/facilities/create">가게 등록</a>
 
                       <a href="/admin/support/list">지원차량</a>

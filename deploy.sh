@@ -9,14 +9,6 @@ repository="baugh248730/isosim";
 
 echo "docker logins try"
 docker login
-#chmod +x ./login.sh
-#./login.sh
-#if [ $? -eq 0 ];then
-#  echo "login clear!"
-#else
-#    echo "login Failure!"
-#    exit 9
-#fi
 
 
 echo "Docker compose down start ... "
