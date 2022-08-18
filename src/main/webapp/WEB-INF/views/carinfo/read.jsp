@@ -20,6 +20,8 @@
             let windowFeatures = "left=100, top=100, width=320, height=900, width=640";
             windowObjectReference = window.open("/admin/carinfo/optupdate/${carnumber}", "mozillaTab", windowFeatures);
           }
+
+
           function mapupdate() {
             let windowObjectReference;
             let windowFeatures = "left=100, top=100, width=320, height=900, width=640";
@@ -54,7 +56,8 @@
 
                 <h3 class="carinfo">
                   🚗${dto.carnumber}<br>
-                  🙍‍♂${dto.carseate} | 🚩${dto.carpoint} | 🚙${dto.category}<br>
+                  🙍‍♂${dto.carseate} | 🚙${dto.category}<br>
+                  🚩${dto.carpoint}<br>
                   🧭${dto.caryearmodel}<br>
                   <!-- 💲(시간당)${dto.rentcost}<br> -->
 
@@ -138,11 +141,11 @@
               </div>
               <c:if test="${sessionScope.grade == 'A'}">
                 <div class="Abtn">
-          <a href="/admin/carinfo/update/${dto.carnumber}" class="btn btn-defaul">정보 수정</a>
+                  <a href="/admin/carinfo/update/${dto.carnumber}" class="btn btn-defaul">정보 수정</a>
 
                   <button onclick="optupdate()" class="btn btn-defaul">옵션 수정</button>
 
-<a href="/admin/carinfo/updateFile/${dto.carnumber}" class="btn btn-defaul">사진 수정</a>
+                  <a href="/admin/carinfo/updateFile/${dto.carnumber}" class="btn btn-defaul">사진 수정</a>
 
                   <button onclick="mapupdate()" class="btn btn-defaul">차위치수정</button>
                 </div>
@@ -162,7 +165,7 @@
                   <a href="#tebContents03" role="button" class="btn btn-defaul" aria-selected="false" id="tabCont"
                     data-controls="tabContents02">차량/보험</a>
                   <a href="#tebContents04" role="button" class="btn btn-defaul" aria-selected="false" id="tabCont"
-                    data-controls="tabContents04">차 위치</a>
+                    data-controls="tabContents04">EV Rent Zoon</a>
                 </ul>
               </div>
               <!-- 유의사항 -->
@@ -337,7 +340,7 @@
             <div class="map_wrap">
               <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
               <div class="hAddr">
-                <span class="title">${dto.carpoint}<br>
+                <span class="title">EV Rent Zoon <br>${dto.carpoint}<br>
                 </span>
               </div>
             </div>
@@ -374,7 +377,7 @@
         </div>
         </div>
         <p class="button">
-              <input type="button" value="TOP" onClick="javascript:window.scrollTo(0,0)"/>
+          <input type="button" value="TOP" onClick="javascript:window.scrollTo(0,0)" />
         </p>
         </div>
 

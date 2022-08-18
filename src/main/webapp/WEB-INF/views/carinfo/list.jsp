@@ -87,7 +87,9 @@
           <div class="form-group">
             <input type="text" class="control" placeholder="Enter Category" name="word" value="${word}">
           </div>
-          <button type="submit" class="btn btn-defaul">검색</button>
+
+          <button type="submit" class="btn btn-default">검색</button>
+
           <c:if test="${sessionScope.grade == 'A'}">
           <button class="btn btn-defaul" onclick="createwindow()">Car Create</button>
           </c:if>

@@ -22,7 +22,7 @@
 
 <body>
   <div class="container">
-    <header>CarOption</header>
+    <header>차 옵션 등록</header>
     <form
     action="/carinfo/optcreate"
     method="post"

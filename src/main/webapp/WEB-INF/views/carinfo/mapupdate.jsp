@@ -35,12 +35,12 @@
           <div class="fields" id="option">
 
             <div class="input-field">
-              <label for="carnumber">Car Number</label>
+              <label for="carnumber">Car 경도</label>
               <input type="text" name="x" id="x" placeholder="Enter 경도" required>
             </div>
 
             <div class="input-field">
-              <label for="carnumber">Car Number</label>
+              <label for="carnumber">Car 위도</label>
               <input type="text" name="y" id="y" placeholder="Enter 위도" required>
             </div>
             <div class="buttons">

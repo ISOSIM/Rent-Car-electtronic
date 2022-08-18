@@ -21,4 +21,7 @@ class SurpportControllerTest {
         map.put("carnum", carnum);
         System.out.println(service.list(map));
     }
+
 }
+
+

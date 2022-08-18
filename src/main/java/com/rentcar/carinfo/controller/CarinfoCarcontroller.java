@@ -30,6 +30,7 @@ public class CarinfoCarcontroller {
 
 
     private static final Logger log = LoggerFactory.getLogger(CarinfoCarcontroller.class);
+
     @Autowired
     @Qualifier("com.rentcar.carinfo.service.CarinfoServiceImpl")
     private CarinfoService service;
