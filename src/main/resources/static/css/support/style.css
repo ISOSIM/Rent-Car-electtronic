@@ -1,38 +1,38 @@
 .styled-table {
     border-collapse: collapse;
     margin: 25px 0;
-    font-size: 0.9em;
+    font-size: .9em;
     font-family: sans-serif;
     min-width: 400px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 20px rgba(0, 0, 0, .15)
 }
 
 .styled-table thead tr {
     background-color: #1d68dc;
-    color: #ffffff;
-    text-align: center;
+    color: #fff;
+    text-align: center
 }
 
-.styled-table th,
-.styled-table td {
-    padding: 12px 15px;
+.styled-table td,
+.styled-table th {
+    padding: 12px 15px
 }
 
 .styled-table tbody tr {
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid #ddd
 }
 
 .styled-table tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
+    background-color: #f3f3f3
 }
 
 .styled-table tbody tr:last-of-type {
-    border-bottom: 2px solid #009879;
+    border-bottom: 2px solid #009879
 }
 
 .styled-table tbody tr.active-row {
-    font-weight: bold;
-    color: #009879;
+    font-weight: 700;
+    color: #009879
 }
 
 .container .form-inline {
@@ -40,7 +40,7 @@
     justify-content: center;
     flex-direction: row;
     align-items: center;
-    margin-bottom: 50px;
+    margin-bottom: 50px
 }
 
 .table {
@@ -48,7 +48,61 @@
     justify-content: center;
     flex-direction: row;
     align-items: center;
-    margin-bottom: 50px;
+    margin-bottom: 50px
+}
+
+
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: .9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .15)
+}
+
+.styled-table thead tr {
+    background-color: #1d68dc;
+    color: #fff;
+    text-align: center
+}
+
+.styled-table td,
+.styled-table th {
+    padding: 12px 15px
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #ddd
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879
+}
+
+.styled-table tbody tr.active-row {
+    font-weight: 700;
+    color: #009879
+}
+
+.container .form-inline {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 50px
+}
+
+.table {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 50px
 }
 
 
@@ -63,7 +117,6 @@
     margin: 10px;
 }
 
-
 /* To create surface of toggle button */
 .cm-toggle:after {
     content: '';
@@ -74,7 +127,6 @@
     border-radius: 18px;
     clear: both;
 }
-
 
 /* Contents before checkbox to create toggle handle */
 .cm-toggle:before {
@@ -89,7 +141,6 @@
     background: rgb(255, 255, 255);
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
 }
-
 
 /* Shift the handle to left on check event */
 .cm-toggle:checked:before {
@@ -112,4 +163,5 @@
     -webkit-transition: ease .3s;
     -moz-transition: ease .3s;
     -o-transition: ease .3s;
+    margin-bottom: 50px
 }

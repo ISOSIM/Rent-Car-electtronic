@@ -5,15 +5,12 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-
-import com.rentcar.notice.model.review.service.ReviewService;
+import com.rentcar.review.service.ReviewService;
 import org.springframework.web.multipart.MultipartFile;
 
 
 public class Utility {
-
-
-    public static void writeMultiPart(OutputStream out, String jsonMessage, File file, String boundary)
+public static void writeMultiPart(OutputStream out, String jsonMessage, File file, String boundary)
             throws IOException {
         StringBuilder sb = new StringBuilder();
         sb.append("--").append(boundary).append("\r\n");

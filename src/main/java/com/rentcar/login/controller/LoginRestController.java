@@ -96,7 +96,6 @@ public class LoginRestController {
             br.close();
             // System.out.println(response); // 문자열
 
-            // ---------------------------------------json으로
             // String to Json Object
             JSONObject jsonObj = new JSONObject(response.toString());
             // System.out.println(jsonObj); https://jsonbeautifier.org/ 에서 확인

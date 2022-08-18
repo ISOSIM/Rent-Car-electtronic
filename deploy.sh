@@ -2,35 +2,54 @@
 
 # Jenkins 에서 체크가 끝나면 해당 파일을 실행
 
+cat ./src/main/resources/static/hat.txt
+
 container_name="evrent";
 repository="baugh248730/isosim";
 
 echo "docker logins try"
 docker login
+#chmod +x ./login.sh
+#./login.sh
+#if [ $? -eq 0 ];then
+#  echo "login clear!"
+#else
+#    echo "login Failure!"
+#    exit 9
+#fi
 
-# 기존 컨테이너 정지 후 이미지 제거
-echo "Container stop and remove";
 
-# shellcheck disable=SC1007
-container_id=$(docker ps -aqf "name= ${container_name}");
-echo "Docker : container_id = ${container_id}";
+echo "Docker compose down start ... "
+docker-compose down
 
-echo "Container stop"
-docker stop ${container_id}
-docker rm ${container_id}
+if [ $? -eq 0 ];then
+    echo "Docker compose down clear!"
+    docker rmi $(docker images -f "dangling=true" -q)
+else
+    echo "docker-compose down Failure!"
+    exit 9
+fi
+echo "After CMD OK!"
 
-echo "Docker image remove"
-docker rmi ${container_name}
 
 # gradle build
 echo "DockerFile start... and"
-
-docker build -t isosim:latest .
+#docker build -t isosim:latest .
 
 echo "DockerFile clear !!!"
 echo "image push to docker hub"
 docker tag isosim baugh248730/isosim:latest
 docker push ${repository}
 
-echo "Docker compose up start ... "
+echo "New images with Docker-composeer up start ... "
 docker-compose up -d
+
+if [ $? -eq 0 ];then
+    echo "Docker compose up clear!"
+    docker rmi $(docker images -f "dangling=true" -q)
+else
+    echo "docker-compose up Failure!"
+    exit 9
+fi
+cat ./src/main/resources/static/Done.txt
+

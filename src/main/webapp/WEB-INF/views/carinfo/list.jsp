@@ -9,8 +9,8 @@
     <head>
       <title>상품메인페이지</title>
       <meta charset="utf-8">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
       <script type="text/javascript">
 
         function del(carnumber) {
@@ -23,14 +23,8 @@
         function createwindow() {
           let windowObjectReference;
           let windowFeatures = "left=100,top=100,width=320,height=900, width=640";
-          windowObjectReference = window.open("./create", "mozillaTab", windowFeatures);
+          windowObjectReference = window.open("/admin/carinfo/create", "mozillaTab", windowFeatures);
         }
-
-        // function update() {
-        //                   let windowObjectReference;
-        //                   let windowFeatures = "left=100,top=100,width=320,height=900, width=640";
-        //                   windowObjectReference = window.open("./update/${dto.carnumber}", "mozillaTab", windowFeatures);
-        //                 }
 
       </script>
       <style>
@@ -81,10 +75,10 @@
           <div class="form-group">
             <input type="text" class="form-control" placeholder="Enter 검색어" name="word" value="${word}">
           </div>
-          <button type="submit" class="check">검색</button>
-          <!-- car create 버튼 나중에 유저는 안보이게 하고 관리자만 볼 수 있게 수정 필요 -->
+          <button type="submit" class="btn btn-default">검색</button>
+          <c:if test="${sessionScope.grade == 'A'}">
           <button onclick="createwindow()">Car Create</button>
-        
+          </c:if>
           
           </form>
 
@@ -103,7 +97,7 @@
                 <div class="col-sm-3">
                   <h1> ${dto.carname }</h1>
 
-                  <a href="/carinfo/read/${dto.carnumber}">
+                  <a href="/user/carinfo/read/${dto.carnumber}">
                     <img src="${dto.carimage}" class="img-thumbnail" width="350" height="300"></a>
                   <p><b>차 번호 : ${dto.carnumber}</b><br>
                     <b>${dto.category} | ${dto.carseate }</b> | <b>${dto.caryearmodel}</b><br>
@@ -111,18 +105,12 @@
                     <!-- <b>차 렌트비용(시간당) : ${dto.rentcost}</b> -->
                   </p>
                   
-                  
-                  <button>
-                  <a href="./update/${dto.carnumber}">Car Info Update
-                    <span class="glyphicon glyphicon-edit"></span>
-                  </a></button>
-                
-
+                  <c:if test="${sessionScope.grade == 'A'}">
                   <button>
                   <a href="javascript:del('${dto.carnumber}')">Car Delete
                     <span class="glyphicon glyphicon-trash"></span>
                   </a></button>
-                
+                </c:if>
                 </div>
 
               </c:forEach>

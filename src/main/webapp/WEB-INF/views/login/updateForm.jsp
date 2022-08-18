@@ -190,7 +190,7 @@ function inCheck(f){
         <c:when test="${not empty sessionScope.id && sessionScope.grade == 'H'}">
       <div>
       <br><br><br>
-           <button type="button" class="cre_btn2" onclick="location.href='/user/delete'">회원탈퇴</button>
+           <button type="button" class="cre_btn2" onclick="location.href='/exception/user/delete'">회원탈퇴</button>
       </div>
       </c:when>
       </c:choose>

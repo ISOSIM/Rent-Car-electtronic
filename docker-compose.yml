@@ -16,6 +16,8 @@ services:
       always
     depends_on:
       - mysql
+    links:
+      - mysql
 
   evrent2:
     container_name: evrent2
@@ -33,10 +35,13 @@ services:
       always
     depends_on:
       - mysql
+    links:
+      - mysql
 
   mysql:
     container_name: mysql
     image: mysql
+    restart: always
     environment:
       MYSQL_DATABASE: rent_car
       MYSQL_ROOT_PASSWORD: Wotjd@487

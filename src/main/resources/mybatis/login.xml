@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" ?> 
- 
+<?xml version="1.0" encoding="UTF-8" ?>
+
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
@@ -75,14 +75,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 	<select id="pwFind" parameterType="Map" resultType="String">
-		select passwd 
+		select passwd
 		from user
 		where id = #{id}
 		and mname = #{mname}
 	</select>
 
 	<select id="idFind" parameterType="Map" resultType="String">
-		select id 
+		select id
 		from user
 		where mname = #{mname}
 		and email = #{email}
@@ -115,7 +115,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<select id="loginCheck" parameterType="Map" resultType="int">
-		select count(*) 
+		select count(*)
 		from user
 		where id = #{id}
 		and passwd = #{passwd}

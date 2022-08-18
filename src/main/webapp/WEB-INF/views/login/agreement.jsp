@@ -1,7 +1,7 @@
-<%@ page contentType="text/html; charset=UTF-8" %> 
- 
-<!DOCTYPE html> 
-<html> 
+<%@ page contentType="text/html; charset=UTF-8" %>
+
+<!DOCTYPE html>
+<html>
 <head>
   <title>회원약관</title>
   <meta charset="utf-8">
@@ -14,9 +14,7 @@
       alert('이용약관에 동의해 주세요.');
       return false; // 서브밋 중지
     }
-
   }
-
   </script>
 
 </head>
@@ -237,5 +235,5 @@
 </form>
 </div>
 </div>
-</body> 
-</html> 
+</body>
+</html>

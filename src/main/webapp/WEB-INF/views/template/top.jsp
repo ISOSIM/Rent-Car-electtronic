@@ -6,7 +6,7 @@
         <c:set var="str">Admin</c:set>
       </c:when>
       <c:when test="${not empty sessionScope.id && sessionScope.grade != 'A'}">
-        <c:set var='str'>안녕하세요 ${sessionScope.id } 님!</c:set>
+        <c:set var='str'>Log Out</c:set>
       </c:when>
       <c:otherwise>
         <c:set var="str">Log In</c:set>
@@ -42,7 +42,8 @@
                 class="item__text">Board</span></li>
             <div class="dropdown-content">
               <a href="/notice/list">공지사항</a>
-              <a href="/contnets/list">자유게시판</a>
+              <a href="/user/contents/list">자유게시판</a>
+
               <a href="#">xx</a>
             </div>
           </div>
@@ -51,21 +52,8 @@
             <li class="navigation__item"><span class="item__icon"><span class="icon__emoji">🚖</span></span><span
                 class="item__text">Rent</span></li>
             <div class="dropdown-content">
-<<<<<<< HEAD
-
-              <a href="/carinfo/list">차량 리스트(유저)</a>
-              <a href="/booking/rent">차량 예약</a>
-              <a href="/booking/list">예약 현황</a>
-              <a href="/carinfo/list">차량리스트(관리자)</a>
-
               <a href="/carinfo/list">차량 리스트</a>
-              <a href="#">차량 예약</a>
-              <a href="#">예약 현황</a>
-
-=======
-              <a href="/carinfo/list">차량 리스트</a>
-              <a href="/booking/rent">차량 예약</a>
->>>>>>> 6a34f9b4afab89cc31c37bf2d6b014dbe52e5e48
+              <a href="/user/booking/rent">차량 예약</a>
             </div>
           </div>
 
@@ -74,21 +62,19 @@
                 class="item__text">지원</span></li>
             <div class="dropdown-content">
               <a href="/map/map">충전소 조회</a>
-              <a href="/request/create">지원 요청</a>
-              <a href="/">xx</a>
+              <a href="/user/request/create">지원 요청</a>
             </div>
           </div>
 
           <c:choose>
 
-            <c:when test="${empty sessionScope.id }">
+            <c:when test="${empty sessionScope.id}">
               <div class="dropdown">
                 <li class="navigation__item"><span class="item__icon"><span class="icon__emoji">🙋‍♂️</span></span>
                   <span class="item__text"><a id="grade">${str}</span></li>
                 <div class="dropdown-content">
-                  <a href="/user/login">Sign In</a>
-                  <a href="/user/agree">Sign Up</a>
-                  <a href="/user/logout">Sign Out</a>
+                  <a href="/exception/user/login">Sign In</a>
+                  <a href="/exception/user/agree">Sign Up</a>
                 </div>
               </div>
             </c:when>
@@ -96,16 +82,22 @@
 
             <c:when test="${not empty sessionScope.id && sessionScope.grade == 'A'}">
               <div class="dropdown">
-                <li class="navigation__item"><span class="item__icon"><span class="icon__emoji">👨‍💻</span></span><span
-                    class="item__text">Admin</span></li>
-                <div class="dropdown-content">
-                    <a href="/admin/carinfo/list">차량리스트</a>
-                  <a href="/admin/user/list">회원목록</a>
-                  <a href="/booking/list">예약 현황</a>
-                  <a href="/map/facilities/create">가게 등록</a>
-                  <a href="/user/logout">Sign Out</a>
+                <li class="navigation__item">
+                    <span class="item__icon">
+                    <span class="icon__emoji">👨‍💻</span>
+                    </span>
+                    <span class="item__text">Admin</span>
+                </li>
+                    <div class="dropdown-content">
+                      <a href="/admin/carinfo/list">차량리스트</a>
+                      <a href="/exception/admin/user/list">회원목록</a>
+                      <a href="/booking/list">예약 현황</a>
+                      <a href="/map/facilities/create">가게 등록</a>
 
-                </div>
+                      <a href="/admin/support/list">지원차량</a>
+                      <a href="/admin/request/list">지원요청</a>
+                      <a href="/exception/user/logout">Sign Out</a>
+                    </div>
               </div>
             </c:when>
 
@@ -115,9 +107,8 @@
                 <li class="navigation__item"><span class="item__icon"><span class="icon__emoji">🙋‍♂️</span></span><span
                     class="item__text">${str}</span></li>
                 <div class="dropdown-content">
-                  <a href="/member/mypage">My Page</a>
-                  <a href="/carinfo/list">차량리스트</a>
-                  <a href="/user/logout">Logout</a>
+                  <a href="/user/member/mypage">My Page</a>
+                  <a href="/exception/user/logout">Logout</a>
                 </div>
               </div>
             </c:otherwise>
@@ -127,4 +118,5 @@
       </nav>
       </div>
     </body>
+
     </html>

@@ -25,14 +25,14 @@
      </style>
   <script type="text/javascript">
      	 function updateU(){
-	         var url = "${root}/admin/user/update";
+	         var url = "update";
              	 url += "?id=${dto.id}";
 
             	  location.href = url;
               }
 	function del() {
 		if(confirm("정말 회원을 삭제하시겠습니까?")){
-			  var url = "${root}/admin/user/delete";
+			  var url = "delete";
                   url += "?id=${dto.id}";
 		location.href = url;
 		}
@@ -88,7 +88,7 @@
  <button class="cre_btn" onclick="del()">회원 삭제</button>
  <div>
   <br> <br>
- <button class="cre_btn2" onclick="location.href='list'">회원 목록</button>
+ <button class="cre_btn2" onclick="location.href='/exception/admin/user/list'">회원 목록</button>
  </div>
 </div>
 <br>
