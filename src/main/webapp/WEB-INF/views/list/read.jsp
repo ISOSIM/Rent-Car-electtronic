@@ -20,14 +20,16 @@
       <div class="container">
         <div id="div1">
          <table class="table table-striped">
-          <th><img src="https://cdn-icons-png.flaticon.com/512/1828/1828413.png" style="height:20px; width:20px ">&nbsp;${dto.wname}</th>
+          <th><img src="https://cdn-icons-png.flaticon.com/512/1828/1828413.png" style="height:20px; width:20px ">&ensp;${dto.wname}</th>
           <th>&emsp;${dto.rdate}&emsp;</th>
           <th>조회수: ${dto.cnt}</th>
              <div style="display: inline-block; margin: 0 5px;  float: right;">
-            <!-- <c:if test="${sessionScope.id} == ${dto.wname}">
+
+             <c:if test="${dto.wname eq sessionScope.id}">
              <button id='btn_update' class='btn btn-default' style="width:10; height:5;" >글 수정</button>
-             </c:if> -->
-            <button id='btn_delete' class='btn btn-default' style="width:10; height:5;" >글 삭제</button>
+             <button id='btn_delete' class='btn btn-default' style="width:10; height:5;" >글 삭제</button>
+             </c:if>
+
 
              </div>
 
@@ -85,7 +87,9 @@
 
     <a id="contents">${list.content}</a>
     <div style="display: inline-block; margin: 0 5px;  float: right;">
-   <button type="button" id='delete' class='delete' style="width:20; height:20;">삭 제</button>
+    <c:if test="${list.id eq sessionScope.id}">
+    <button type="button" id='delete' class='delete' style="width:20; height:20;">삭 제</button>
+    </c:if>
     </div>
     <br>
       <br>

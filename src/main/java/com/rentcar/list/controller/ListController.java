@@ -41,7 +41,7 @@ public class ListController {
 
     @GetMapping("/list/update")
     public String update(int listno, Model model) {
-
+        System.out.println("********************************/list/update");
         model.addAttribute("dto", service.read(listno));
 
         return "/list/update";
@@ -49,10 +49,12 @@ public class ListController {
 
     @PostMapping("/list/update")
     public String update(ListDTO dto) {
-        Map map = new HashMap();
-        map.put("listno", dto.getListno());
+        System.out.println("********************************/list/update");
+        System.out.println("********************************" + dto);
+//        Map map = new HashMap();
+//        map.put("listno", dto.getListno());
         service.update(dto);
-        return "redirect:/contents/list";
+        return "redirect:/user/contents/list";
     }
 
     @PostMapping("/list/{listno}")
@@ -71,7 +73,7 @@ public class ListController {
         service.upCnt(listno);
 
         ListDTO dto = service.read(listno);
-
+        System.out.println("dto="+dto);
 
         String content = dto.getContent().replaceAll("\r\n", "<br>");
 

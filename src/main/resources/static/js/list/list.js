@@ -16,7 +16,7 @@ location.href='/user/login';
        location.href=url;
        }
 
-$("#rcdStart").click(function(){ //마이크 클릭 함수
+
  if(!("webkitSpeechRecognition") in window){
         alert("Connect in Chrome Browser");
     }else{
@@ -25,9 +25,6 @@ $("#rcdStart").click(function(){ //마이크 클릭 함수
         document.getElementById("rcdStart").addEventListener("click",()=>{
          var result = confirm("마이크 사용을 허용합니다.")
          if(result){
-
-
-
 
         rcdStart.src ="/images/SJ/mic(red).png";
             speech.start();
@@ -58,7 +55,7 @@ $("#rcdStart").click(function(){ //마이크 클릭 함수
 
         }
         }
-});
+
 
 
 

@@ -23,7 +23,7 @@
 
 <body>
     <div class="container">
- <h1>맛집 추가</h1>
+ <h1>맛집 수정</h1>
  <form class="form-horizontal"
        action="./update"
        method="post"
@@ -31,12 +31,12 @@
 
       <form class="form-horizontal" action="./create" method="post" enctype="multipart/form-data"
         onsubmit="return checkIn(this)">
-
+<input type="hidden" name="listno" value="${dto.listno}">
  <br>
          <div class="form-group">
 
              <div class="col-sm-6">
-             <input type="text" name="wname" id="wname" class="form-control"  style="width:100px;font-size:16px;border: none;" value="${sessionScope.id}" readonly>
+             <input type="text"  id="wname" class="form-control"  style="width:100px;font-size:16px;border: none;" value="${sessionScope.id}" readonly>
              </div>
            </div>
            <div class="form-group">
@@ -65,8 +65,8 @@
 
         <div class="form-group">
           <div style="display: inline-block; margin: 0 5px;  float: right;">
-            <button id='btn_delete' class='btn' style="width:10; height:5;" >취 소</button>
-            <button id='btn_update' class='btn' style="width:10; height:5;" >등 록</button>
+            <button id='btn_delete'  style="width:10; height:5;" >취 소</button>
+            <button id='btn_update'  style="width:10; height:5;" >등 록</button>
           </div>
 
         </div>

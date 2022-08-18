@@ -22,7 +22,7 @@ public class UserInterceptor implements HandlerInterceptor {
             return true;
         } else {
             // 에러 출력또는 로그인 페이지로 이동
-            response.sendRedirect("/error404");
+            response.sendRedirect("/error403");
             return false;
         }
     }

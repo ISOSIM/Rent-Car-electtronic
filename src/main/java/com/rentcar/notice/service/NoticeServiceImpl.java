@@ -62,5 +62,10 @@ public class NoticeServiceImpl implements NoticeService{
     return mapper.mainNoticeList();
   }
 
+  @Override
+  public String readfile(Map fname) {
+    return mapper.readfile(fname);
+  }
+
 
 }

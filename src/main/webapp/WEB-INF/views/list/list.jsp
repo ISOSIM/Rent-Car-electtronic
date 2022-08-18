@@ -22,6 +22,8 @@
 
               <div class="form-group">
                 <select class="control" name="col">
+                <option value="total" <c:if test="${col=='total'}"> selected </c:if>
+                    >전체출력</option>
                   <option value="wname" <c:if test="${col=='wname'}"> selected </c:if>
                     >성명</option>
                   <option value="title" <c:if test="${col=='title'}"> selected </c:if>
@@ -30,8 +32,7 @@
                     >내용</option>
                   <option value="title_content" <c:if test="${col=='title_content'}"> selected</c:if>
                     >제목+내용</option>
-                  <option value="total" <c:if test="${col=='total'}"> selected </c:if>
-                    >전체출력</option>
+
                 </select>
 
                 <input type="text" class="control" placeholder="Enter 검색어" id="word" name="word" value="${word}">

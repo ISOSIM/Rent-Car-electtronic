@@ -4,16 +4,13 @@ package com.rentcar.config.error;
 import com.rentcar.utility.Utility;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
-
-
 public class AdminInterceptor implements HandlerInterceptor {
     // URL 요청후 컨트롤러 작동전에 실행함.
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         HttpSession session = request.getSession(true);

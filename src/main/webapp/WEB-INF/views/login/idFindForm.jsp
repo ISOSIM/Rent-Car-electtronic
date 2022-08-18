@@ -48,7 +48,7 @@
     <div class="form-block">
 
     <fieldset>
-  <h1><strong>아이디 찾기</strong></h1>
+  <h1><strong>아이디 찾기</strong></h1><br>
   <p> 가입된 정보를 입력하세요.</p><br><br>
 
    <div class="info">
@@ -67,7 +67,7 @@
 
 		<div class ="find" align="center">
 		<p>
-			<br><br><a href="/user/pwfind">비밀번호 찾기</a><br><br>
+			<br><br><a href="/exception/user/pwfind">비밀번호 찾기</a><br><br>
 		</p>
 		<p>
 			<a href="/user/agree" style="color:#489CFF;">회원가입</a>

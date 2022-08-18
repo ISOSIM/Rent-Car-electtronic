@@ -43,7 +43,7 @@
                 <input type="text" class="control" placeholder="Enter 검색어" id="word" name="word" value="${word}">
 
                 <button class="btn btn-default">검색</button>
-                <button type="button" class="btn btn-default" id="create_btn">등록</button>
+                <button type="button" class="btn btn-default" id="create_btn" onclick="location.href='/admin/notice/create'">등록</button>
               </div>
             </form>
 

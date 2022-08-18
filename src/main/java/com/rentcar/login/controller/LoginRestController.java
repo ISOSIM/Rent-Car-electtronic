@@ -25,6 +25,7 @@ import java.util.Map;
 import java.util.UUID;
 
 @RestController
+@RequestMapping("/exception")
 public class LoginRestController {
     private static final Logger log = LoggerFactory.getLogger(LoginController.class);
 
@@ -170,7 +171,6 @@ public class LoginRestController {
         }
 
     }
-
 
 
     @GetMapping(value = "/user/emailcheck", produces = "application/json;charset=utf-8")
