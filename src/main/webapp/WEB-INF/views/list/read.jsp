@@ -25,12 +25,10 @@
           <th>조회수: ${dto.cnt}</th>
              <div style="display: inline-block; margin: 0 5px;  float: right;">
 
-             <c:if test="${dto.wname eq sessionScope.id}">
+             <c:if test="${dto.wname eq sessionScope.id || sessionScope.grade == 'A'}">
              <button id='btn_update' class='btn btn-default' style="width:10; height:5;" >글 수정</button>
              <button id='btn_delete' class='btn btn-default' style="width:10; height:5;" >글 삭제</button>
              </c:if>
-
-
              </div>
 
 
@@ -87,7 +85,7 @@
 
     <a id="contents">${list.content}</a>
     <div style="display: inline-block; margin: 0 5px;  float: right;">
-    <c:if test="${list.id eq sessionScope.id}">
+    <c:if test="${list.id eq sessionScope.id || sessionScope.grade == 'A'}">
     <button type="button" id='delete' class='delete' style="width:20; height:20;">삭 제</button>
     </c:if>
     </div>

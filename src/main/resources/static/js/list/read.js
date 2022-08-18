@@ -86,8 +86,6 @@ var listno =document.querySelector("#listno").value;
 
 
 $("#delete").click(function(){ // 리뷰 삭제
-var list_id =document.querySelector("#list_id").value;
-if(list_id )
 var rnum = document.querySelector("#rnum").value;
 
 
