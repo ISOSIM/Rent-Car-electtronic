@@ -16,8 +16,7 @@
         where id =#{id}
     </select>
 
-    <select id="reservation" parameterType="String"
-            resultType="String">
+    <select id="reservation" parameterType="String" resultType="String">
         select carnumber
         from user
         where id =#{id}

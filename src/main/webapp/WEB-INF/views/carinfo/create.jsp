@@ -19,10 +19,7 @@
       <div class="container">
         <h1 class="col-sm-offset-2 col-sm-10">자동차 등록</h1>
 
-        <form class="form-horizontal"
-        action="/carinfo/create"
-        method="post" 
-        enctype="multipart/form-data">
+        <form class="form-horizontal" action="/carinfo/create" method="post" enctype="multipart/form-data">
 
 
           <div class="form first">

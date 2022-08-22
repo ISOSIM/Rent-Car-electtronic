@@ -34,7 +34,7 @@
 
   	//비동기 통신을 처리하는 함수 선언
    function pwfind(id,mname){
-	  return fetch(`/user/pwfindex?id=\${id}&mname=\${mname}`)
+	  return fetch(`/exception/user/pwfindex?id=\${id}&mname=\${mname}`)
 	  			.then(response => response.text())
 	  			.catch(console.log);
    }
@@ -47,7 +47,7 @@
     <div class="form-block">
 
     <fieldset>
-  <h1><strong>비밀번호 찾기</strong></h1>
+  <h1><strong>비밀번호 찾기</strong></h1><br>
   <p> 가입된 정보를 입력하세요.</p><br><br>
 
    <div class="info">

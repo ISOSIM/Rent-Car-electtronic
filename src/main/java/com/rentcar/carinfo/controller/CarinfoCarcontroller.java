@@ -62,6 +62,7 @@ public class CarinfoCarcontroller {
 
         int cnt = service.updateFile(dto);
         if (cnt == 1) {
+
             return "redirect:/carinfo/list";
         } else {
             return "error";
@@ -76,7 +77,7 @@ public class CarinfoCarcontroller {
     }
 
 
-    @GetMapping("/carinfo/delete/{carnumber}")
+    @GetMapping("/admin/carinfo/delete/{carnumber}")
     public String delete(@PathVariable String carnumber) {
         int flag = service.delete(carnumber);
         if (flag != 1) return "error";
@@ -125,8 +126,8 @@ public class CarinfoCarcontroller {
     }
 
     @GetMapping("/admin/carinfo/create")
-    public String create() {return
-                "/carinfo/create";
+    public String create() {
+        return "/carinfo/create";
     }
 
 

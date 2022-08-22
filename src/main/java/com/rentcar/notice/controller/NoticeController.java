@@ -15,6 +15,8 @@ import com.rentcar.notice.service.NoticeService;
 import com.rentcar.utility.Ncloud.AwsS3;
 import com.rentcar.utility.Ncloud.AwsS3Config;
 import com.rentcar.utility.Ncloud.service.AwsS3Service;
+import com.rentcar.utility.UploadLicense;
+import com.rentcar.utility.UploadList;
 import com.rentcar.utility.Utility;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
@@ -55,7 +57,7 @@ public class NoticeController {
     @GetMapping("/")
     public String home(HttpServletRequest request) {
         List<NoticeDTO> mainNoticeList = service.mainNoticeList();
-        System.out.println("!!!!!!!!!!!!!"+mainNoticeList);
+
         request.setAttribute("mainNoticeList", mainNoticeList);
         return "/home";
     }
@@ -63,18 +65,23 @@ public class NoticeController {
     @GetMapping("/notice/fileDown")
     public void fileDown(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
+        Map<String, String> map = new HashMap<>();
         String noticeno = request.getParameter("noticeno");
 
-        String fname = request.getParameter("key");
+        String fname = request.getParameter("fname");
         String bucketName = "imagetest";
-        String objectName = fname;
-        String downloadFilePath = "D:/Github_upload/projectSaveF/files/";
+
+        map.put("fname", fname);
+        String objectName = service.readfile(map);
+
+        String upDir = UploadList.getNoticeDir();
+
 
         try {
             S3Object s3Object = amazonS3.getObject(bucketName, objectName);
             S3ObjectInputStream s3ObjectInputStream = s3Object.getObjectContent();
 
-            OutputStream outputStream = new BufferedOutputStream(new FileOutputStream(downloadFilePath));
+            OutputStream outputStream = new BufferedOutputStream(new FileOutputStream(upDir));
             byte[] bytesArray = new byte[4096];
             int bytesRead = -1;
             while ((bytesRead = s3ObjectInputStream.read(bytesArray)) != -1) {
@@ -235,7 +242,7 @@ public class NoticeController {
         }
 
         if (service.create(dto) > 0) {
-            return "/user/notice/list";
+            return "/notice/list";
         } else {
             return "error";
         }

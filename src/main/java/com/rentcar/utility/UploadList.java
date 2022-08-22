@@ -21,4 +21,19 @@ public class UploadList {
         return path;
     }
 
+
+    public static synchronized String getNoticeDir() {
+        String path = "";
+        if (File.separator.equals("\\")) {
+            path = "D:\\Github_upload\\projectSaveF\\download\\";
+            System.out.println("Windows 10: " + path);
+
+        } else {
+            // System.out.println("Linux");
+            path = "/home/ubuntu/deploy/bbs/storage/";
+        }
+
+        return path;
+    }
+
 }

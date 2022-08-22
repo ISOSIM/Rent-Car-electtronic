@@ -23,4 +23,6 @@ public interface NoticeService {
     int deleteFile(int noticeno);
 
   List<NoticeDTO> mainNoticeList();
+
+  String readfile(Map fname);
 }

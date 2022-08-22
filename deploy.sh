@@ -9,14 +9,6 @@ repository="baugh248730/isosim";
 
 echo "docker logins try"
 docker login
-#chmod +x ./login.sh
-#./login.sh
-#if [ $? -eq 0 ];then
-#  echo "login clear!"
-#else
-#    echo "login Failure!"
-#    exit 9
-#fi
 
 
 echo "Docker compose down start ... "
@@ -24,7 +16,6 @@ docker-compose down
 
 if [ $? -eq 0 ];then
     echo "Docker compose down clear!"
-    docker rmi $(docker images -f "dangling=true" -q)
 else
     echo "docker-compose down Failure!"
     exit 9
@@ -51,5 +42,6 @@ else
     echo "docker-compose up Failure!"
     exit 9
 fi
+
 cat ./src/main/resources/static/Done.txt
 

@@ -31,8 +31,9 @@ public class BookingController {
 
     @PostMapping("/booking/create")
     public String create(BookingDTO dto, HttpServletRequest request) throws IOException {
+    System.out.println(dto.toString());
         if (service.create(dto) > 0) {
-            return "redirect:./";
+            return "redirect:/";
         } else {
             return "error";
         }
@@ -71,6 +72,8 @@ public class BookingController {
     public String search2(@PathVariable("category") int category, HttpServletRequest request) {
         Map map = new HashMap();
         map.put("category", category);
+
+        System.out.println(map);
 
         List<CarinfoDTO> searchList = service.searchList(map);
 

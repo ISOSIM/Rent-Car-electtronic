@@ -32,7 +32,7 @@
             document.getElementById("checked").textContent = arr;
             console.log(arr);
 
-            let url = "./search/" + arr;
+            let url = "/user/booking/search/" + arr;
             location.href=url;
         }
     }

@@ -1,12 +1,6 @@
 package com.rentcar.login.controller;
 
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.*;
 
 import javax.servlet.http.Cookie;
@@ -14,16 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.rentcar.member.model.MemberDTO;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -45,8 +33,45 @@ public class LoginController {
     private LoginService service;
 
 
+
+    @GetMapping("/admin/user/delete")
+    public String delete(String id) {
+
+        service.delete(id);
+
+        return "redirect:/exception/admin/user/list";
+
+    }
+
+    @PostMapping("/admin/user/update")
+    public String updateU(LoginDTO dto, Model model) {
+        int cnt = service.update(dto);
+
+        if (cnt == 1) {
+            model.addAttribute("id", dto.getId());
+
+            return "redirect:/exception/admin/user/list";
+        } else {
+            return "error";
+        }
+    }
+
+    @GetMapping("/admin/user/update")
+    public String updateU(String id, Model model) {
+
+        LoginDTO dto = service.read(id);
+
+        //log.info("dto:"+dto);
+
+        model.addAttribute("dto", dto);
+
+        return "/user/update";
+
+    }
+
+
     @PostMapping("/user/delete")
-    public String delete(String id, String passwd, LoginDTO dto, RedirectAttributes ra, HttpSession session) {
+    public String delete(String id, String passwd, RedirectAttributes ra, HttpSession session){
 
         Map map = new HashMap();
         map.put("id", id);
@@ -57,10 +82,10 @@ public class LoginController {
 
         if (pflag == 1) {
 
-            service.delete(dto);
+            service.delete(id);
 
 
-        } else {
+        }else {
             ra.addFlashAttribute("msg", false);
 
             return "redirect:/user/delete";
@@ -71,8 +96,9 @@ public class LoginController {
     }
 
 
+
     @GetMapping("/user/delete")
-    public String delete(String id, HttpSession session, Model model) {
+    public String delete(String id, HttpSession session, Model model){
 
         if (id == null) {
             id = (String) session.getAttribute("id");
@@ -141,14 +167,14 @@ public class LoginController {
 
 
     @PostMapping("/user/update")
-    public String update(LoginDTO dto, Model model, RedirectAttributes ra) {
+    public String update(LoginDTO dto, Model model, RedirectAttributes ra){
         int cnt = service.update(dto);
 
         if (cnt == 1) {
             model.addAttribute("id", dto.getId());
 
             return "redirect:/member/mypage";
-        } else {
+        }else{
             return "error";
         }
     }
@@ -175,6 +201,7 @@ public class LoginController {
     }
 
 
+
     @GetMapping("/user/pwfind")
     public String pwfind() {
 
@@ -188,10 +215,13 @@ public class LoginController {
     }
 
     @PostMapping("/user/create")
-    public String create(LoginDTO dto, HttpServletRequest request) throws IOException {
+    public String create(LoginDTO dto) throws IOException {
 
-        log.info("dto: " + dto);
+
+        //log.info("dto: "+dto);
+
         if (service.create(dto) > 0) {
+
             return "redirect:/";
         } else {
             return "error";
@@ -199,7 +229,7 @@ public class LoginController {
 
     }
 
-    @GetMapping("/user/createForm")
+    @PostMapping("/user/createForm")
     public String create() {
 
         return "/user/create";
@@ -289,9 +319,4 @@ public class LoginController {
         return "/user/login";
     }
 
-//  @GetMapping("/")
-//  public String home() {
-//
-//    return "/home";
-//  }
 }

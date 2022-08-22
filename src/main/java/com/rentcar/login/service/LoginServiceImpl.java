@@ -68,9 +68,10 @@ public class LoginServiceImpl implements LoginService {
   }
 
   @Override
-  public void delete(LoginDTO dto) {
-    mapper.delete(dto);
+  public void delete(String id) {
+    mapper.delete(id);
   }
+
 
   @Override
   public int total(Map map) {

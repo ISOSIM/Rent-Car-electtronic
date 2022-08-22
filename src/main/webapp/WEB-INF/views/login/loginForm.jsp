@@ -5,9 +5,8 @@
 <head>
   <title>로그인</title>
   <meta charset="utf-8">
-  
-<link rel="stylesheet" href="/css/login.css">
-  
+    <link rel="stylesheet" href="/css/login.css">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   </head>
   <body>
   
@@ -20,8 +19,8 @@
     <div class="form-block">
    
     <fieldset>
-  <h1><strong>로그인</strong></h1>
-  <p>로그인 하시면 다양하고 특별한 혜택을 이용할 수 있습니다.</p>
+  <h1><strong>Sign In</strong></h1><br>
+  <p>회원이시면 다양하고 특별한 혜택을 이용할 수 있습니다.</p>
 
          <form class="form-horizontal"
         action="/exception/user/login"

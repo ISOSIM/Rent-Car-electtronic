@@ -52,7 +52,7 @@ select {
 
   <script type="text/javascript">
   function read(id){
-	  var url = "${root}/admin/user/read";
+	  var url = "read";
 	  url += "?id="+id;
 
 	  location.href=url;

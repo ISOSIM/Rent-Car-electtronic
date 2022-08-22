@@ -84,7 +84,7 @@
       $.ajax({
         data: data,
         type: "POST",
-        url: "/carinfo/resource",
+        url: "/user/carinfo/resource",
         contentType: false,
         processData: false,
         success: function (data) {

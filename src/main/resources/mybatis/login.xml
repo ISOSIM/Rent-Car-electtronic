@@ -50,12 +50,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				<when test="col=='id'">
 					id like concat('%', #{word} ,'%')
 				</when>
-				<when test="col=='email'">
-					email like concat('%', #{word} ,'%')
-				</when>
 			</choose>
 		</where>
-		ORDER BY mdate DESC
+		ORDER BY mname DESC
 		limit #{sno}, #{eno}
 	</select>
 
@@ -105,10 +102,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<insert id="create" parameterType="com.rentcar.login.model.LoginDTO">
-		insert into user (id, passwd, mname, phone, email, jumin, license,
-		grade, pnt, fname, zipcode, address1,address2)
-		values (#{id}, #{passwd},#{mname}, #{phone}, #{email}, #{jumin}, #{license},
-				'H', '0', #{fname}, #{zipcode}, #{address1}, #{address2})
+		insert into user (id, passwd, mname, phone, email, jumin, license,grade, pnt, fname, zipcode, address1,address2,mdate)
+		values (#{id}, #{passwd},#{mname}, #{phone}, #{email}, #{jumin}, #{license},'H', '0', #{fname}, #{zipcode}, #{address1}, #{address2},sysdate())
 	</insert>
 
 	<select id="getGrade" parameterType="String" resultType="Map">
